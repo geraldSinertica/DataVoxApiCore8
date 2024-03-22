@@ -1,0 +1,8 @@
+@DataVox_HostAddress = http://localhost:5253
+
+GET {{DataVox_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+
