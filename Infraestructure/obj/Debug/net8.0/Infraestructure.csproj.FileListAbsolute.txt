@@ -13,3 +13,4 @@ C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\obj\Debug\n
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\obj\Debug\net8.0\Infraestructure.pdb
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\obj\Debug\net8.0\Infraestructure.genruntimeconfig.cache
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\obj\Debug\net8.0\ref\Infraestructure.dll
+C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\obj\Debug\net8.0\Infraestructure.sourcelink.json

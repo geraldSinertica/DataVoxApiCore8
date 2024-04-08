@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Models
 {
-    internal class ReportJSON
+    public class ReportJSON
     {
+        public string Reporte { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Repository.Models;
+﻿using Infraestructure.Models;
+using Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace Repository.Repositorys
    public interface IRepositoryReport
     {
         Report PersonReport(string identification);
+
+        ReportJSON getPersonReport(string identificacion, int idType);
     }
 }

@@ -24,7 +24,7 @@ namespace Services.Utils
             {
                 var jsonObject = JObject.Parse(json);
 
-                // Convertir el JSON a XML
+                
                 string xml = JsonConvert.DeserializeXmlNode(jsonObject.ToString()).InnerXml;
 
                 return xml;

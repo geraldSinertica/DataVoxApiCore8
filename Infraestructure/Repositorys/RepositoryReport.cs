@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Repository.Models;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Repository.Repositorys
 {
@@ -13,6 +15,8 @@ namespace Repository.Repositorys
         private IRepositoryJuicios repositoryJuicios;
         private IRepositoryStates repositoryStates;
         private IRepositoryConsulta repositoryConsulta;
+        private IConfiguration Configuration;
+
         public RepositoryReport(IConfiguration configuration)
         {
             repositoryPersona = new RepositoryPersona(configuration);
@@ -21,7 +25,54 @@ namespace Repository.Repositorys
             repositoryJuicios = new RepositoryJuicios(configuration);
             repositoryStates = new RepositoryStates(configuration);
             repositoryConsulta = new RepositoryConsulta(configuration);
+            Configuration = configuration;
         }
+
+        public ReportJSON getPersonReport(string identificacion, int idType)
+        {
+            try
+            {
+                ReportJSON Persona = null;
+
+
+                string cadena = Configuration.GetConnectionString("DataVoxConnection");
+                using (SqlConnection connection = new SqlConnection(cadena))
+                {
+                    connection.Open();
+
+                    using (var command = new SqlCommand("[dbo].[ConsultaPersonaFisica]", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add(new SqlParameter("@Identificacion", identificacion));
+                        command.Parameters.Add(new SqlParameter("@TipoIdentificacion", idType));
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                Persona = new ReportJSON
+                                {
+                                    Reporte = reader.GetString(0)
+
+                                };
+
+                            }
+                        }
+                    }
+                }
+
+                return Persona;
+
+            }
+            catch (DbUpdateException dbEx)
+            {
+                throw new Exception(dbEx.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public Report PersonReport(string identification)
         {
             try

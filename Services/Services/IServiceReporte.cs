@@ -1,4 +1,5 @@
-﻿using Repository.Models;
+﻿using Infraestructure.Models;
+using Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace Services.Servicess
     public interface IServiceReporte
     {
        Task<Report> PersonReport(string identification);
-
+       ReportJSON getPersonReport(string identificacion, int idType);
     }
 }

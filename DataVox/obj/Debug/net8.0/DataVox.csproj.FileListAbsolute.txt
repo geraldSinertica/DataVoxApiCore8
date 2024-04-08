@@ -150,3 +150,4 @@ C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\re
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\DataVox.pdb
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\DataVox.genruntimeconfig.cache
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\ref\DataVox.dll
+C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\DataVox.sourcelink.json

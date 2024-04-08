@@ -16,3 +16,4 @@ C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\obj\Debug\net8.0\r
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\obj\Debug\net8.0\AplicationCore.pdb
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\obj\Debug\net8.0\AplicationCore.genruntimeconfig.cache
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\obj\Debug\net8.0\ref\AplicationCore.dll
+C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\obj\Debug\net8.0\AplicationCore.sourcelink.json
