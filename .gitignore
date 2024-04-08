@@ -40,4 +40,4 @@ obj/
 *.cachefile
 *.VC.db
 *.VC.opendb
-
+*.vsidx
