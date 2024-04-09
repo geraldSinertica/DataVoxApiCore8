@@ -1,4 +1,5 @@
 ﻿using Infraestructure.Models;
+using Infraestructure.Repositorys;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Repository.Models;
@@ -15,6 +16,7 @@ namespace Repository.Repositorys
         private IRepositoryJuicios repositoryJuicios;
         private IRepositoryStates repositoryStates;
         private IRepositoryConsulta repositoryConsulta;
+        private IRepositoryPrecalificado repositoryPrecalificado;
         private IConfiguration Configuration;
 
         public RepositoryReport(IConfiguration configuration)
@@ -25,6 +27,7 @@ namespace Repository.Repositorys
             repositoryJuicios = new RepositoryJuicios(configuration);
             repositoryStates = new RepositoryStates(configuration);
             repositoryConsulta = new RepositoryConsulta(configuration);
+            repositoryPrecalificado=new RepositoryPrecalificado(configuration);
             Configuration = configuration;
         }
 
@@ -90,6 +93,7 @@ namespace Repository.Repositorys
                 List<Consulta> consultas = new List<Consulta>();
                 List<Juicio> juicios = new List<Juicio>();
 
+                Precalificado precalificado = new Precalificado();
 
                 personalData = repositoryPersona.GetPersonalInformation(identification);
                
@@ -104,6 +108,7 @@ namespace Repository.Repositorys
                         juicios = repositoryJuicios.GetJudgmentsbyPerson(PersonId);
                         states = repositoryStates.GetStatesByPerson(PersonId);
                         consultas = repositoryConsulta.GetAllByPerson(PersonId);
+                        precalificado = repositoryPrecalificado.getPrecalificacionbyId(identification);
                        
                     }
                     
@@ -119,7 +124,7 @@ namespace Repository.Repositorys
                     report.Demandas = juicios;
                     report.Propiedades = states;
                     report.HistorialConsultas = consultas;
-
+                    report.Precalificado=precalificado;
                 }
 
 

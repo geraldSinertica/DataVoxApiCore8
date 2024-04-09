@@ -19,6 +19,7 @@ namespace Repository.Models
       
         public ApplicantInformation DatosGenerales { get; set; }
         public Incomes Ingresos { get; set; }
+        public Precalificado Precalificado { get; set; }
         public States Propiedades { get; set; }
        
         public Operations Obligaciones { get; set; }       

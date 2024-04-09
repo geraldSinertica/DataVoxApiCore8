@@ -16,7 +16,7 @@ namespace Services.Utils
 {
    public class ReportToXmlConverter
     {
-        public string ConvertJsonToXml(string json)
+        public XmlDocument ConvertJsonToXml(string json)
         {
          
 
@@ -29,8 +29,9 @@ namespace Services.Utils
 
                 //string xml = JsonConvert.DeserializeXmlNode(jsonObject.ToString()).InnerXml;
                 string xml = JsonConvert.DeserializeXmlNode(json, rootName).InnerXml;
-
-                return xml;
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(xml);
+                return xmlDoc;
             }
             catch (InvalidOperationException ex)
             {
