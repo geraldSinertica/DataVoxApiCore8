@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataVox")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9fea097588a40bd94a29a7f20e4ef59db41c4bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08955380f9b0968813bb2ac4679a3fe78a362ee8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataVox")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataVox")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

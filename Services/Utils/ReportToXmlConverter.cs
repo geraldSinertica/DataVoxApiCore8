@@ -24,8 +24,11 @@ namespace Services.Utils
             {
                 var jsonObject = JObject.Parse(json);
 
-                
-                string xml = JsonConvert.DeserializeXmlNode(jsonObject.ToString()).InnerXml;
+                var rootName = "Reporte"; // Puedes cambiar este nombre según tus necesidades
+
+
+                //string xml = JsonConvert.DeserializeXmlNode(jsonObject.ToString()).InnerXml;
+                string xml = JsonConvert.DeserializeXmlNode(json, rootName).InnerXml;
 
                 return xml;
             }
