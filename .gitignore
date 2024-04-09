@@ -41,3 +41,8 @@ obj/
 *.VC.db
 *.VC.opendb
 *.vsidx
+*.dll
+*.pdb
+*.bin
+*.v2
+*.suo
