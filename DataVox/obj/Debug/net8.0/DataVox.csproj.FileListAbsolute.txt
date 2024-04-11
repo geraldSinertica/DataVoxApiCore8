@@ -151,3 +151,4 @@ C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\Da
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\DataVox.genruntimeconfig.cache
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\ref\DataVox.dll
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\obj\Debug\net8.0\DataVox.sourcelink.json
+C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\DataVox\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

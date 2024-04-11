@@ -73,7 +73,7 @@ namespace DataVox.Controllers
                 {
                     response.StatusCode = (int)HttpStatusCode.OK;
                     response.Message = "Reporte encontrado";
-                    response.Data = converter.ConvertJsonToXml(JsonSerializer.Serialize(report)).OuterXml;
+                    response.Data = converter.ConvertJsonToXml(JsonSerializer.Serialize(report)).InnerXml;
                 }
 
                 return Ok(response);

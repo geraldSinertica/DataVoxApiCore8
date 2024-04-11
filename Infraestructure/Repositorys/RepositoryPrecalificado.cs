@@ -35,7 +35,7 @@ namespace Infraestructure.Repositorys
 
                     using var command = new SqlCommand("[dbo].[dbo.PreCalificado-MExpress]", connection);
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter(" @Identificacion", identification));
+                    command.Parameters.Add(new SqlParameter("@Identificacion", identification));
 
                     using var reader = command.ExecuteReader();
                     rules = new List<Reglas>();
@@ -44,7 +44,7 @@ namespace Infraestructure.Repositorys
                       
                         var rule = new Reglas()
                         {
-                            Codigo = reader["Codigo"] != DBNull.Value ? reader["Codigo"].ToString() : "",
+                            Codigo = reader["CodigoRegla"] != DBNull.Value ? reader["CodigoRegla"].ToString() : "",
                             Resultado = reader["Resultado"] != DBNull.Value ? reader["Resultado"].ToString() : "",
                             Detalle = reader["Detalle"] != DBNull.Value ? reader["Detalle"].ToString() : ""
                         };
