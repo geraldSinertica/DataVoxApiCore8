@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositorystates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositorystates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "RepositoryUsuario.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryUsuario.cs",
               "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryUsuario.cs",
@@ -64,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "AutorizacionService.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Services\\Auth\\AutorizacionService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\Auth\\AutorizacionService.cs",
@@ -78,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "IAutorizacionService.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Services\\Auth\\IAutorizacionService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\Auth\\IAutorizacionService.cs",
@@ -92,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Program.cs",
               "RelativeDocumentMoniker": "DataVox\\Program.cs",
@@ -107,19 +111,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "RepositoryStates.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "ViewState": "AQIAALQBAAAAAAAAAAAAAMAAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T10:26:36.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ReportController.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "DataVox\\Controllers\\ReportController.cs",
               "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\ReportController.cs",
               "RelativeToolTip": "DataVox\\Controllers\\ReportController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAADQAAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T09:45:37.537Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IServiceUsuario.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Services\\IServiceUsuario.cs",
               "RelativeDocumentMoniker": "Services\\Services\\IServiceUsuario.cs",
@@ -132,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IRepositoryAuth.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\Auth\\IRepositoryAuth.cs",
               "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\Auth\\IRepositoryAuth.cs",
@@ -145,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\appsettings.json",
               "RelativeDocumentMoniker": "DataVox\\appsettings.json",
@@ -158,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "DataVox\\Controllers\\UserController.cs",

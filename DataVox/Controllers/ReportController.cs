@@ -27,8 +27,6 @@ namespace DataVox.Controllers
         [Route("full")]
         public async Task<IActionResult> GetPersonReport(string identification)
         {
-            
-
             ResponseModel response = new ResponseModel();
             try
             {
@@ -61,9 +59,9 @@ namespace DataVox.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
-        [Route("fullXML")]
-        
+        [Route("fullXML")]        
         public async Task<IActionResult> GetPersonReportXML(string? identification)
         {
             ReportToXmlConverter converter = new ReportToXmlConverter();
@@ -97,6 +95,7 @@ namespace DataVox.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("Compacto")]
         public async Task<IActionResult> GetPersonReportCompacto(string identification,int idTyoe)
