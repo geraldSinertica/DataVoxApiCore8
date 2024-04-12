@@ -70,24 +70,22 @@ namespace Infraestructure.Repositorys
             }
         }
 
-        public LoginDaTa login(string email, string password)
+        public Usuario getUserAuth(string email, string password)
         {
             try
             {
-                LoginDaTa login = new LoginDaTa();
+               
                 Usuario usuario = getUserLogin(email,password);
 
                 if (usuario != null)
                 {
-                    login.Code = 200;
-                    login.user = usuario;
-                    return login;
+                    
+                    return usuario;
                 }
                 else
                 {
-                    login.Code = 401;
-                    login.user = null;
-                    return login;
+                   
+                    return null;
                 }
 
             }

@@ -19,11 +19,14 @@ namespace AplicationCore.Services
             Configuration=configuration;
             repository=new RepositoryUsuario(Configuration);
         }
-        public LoginDaTa login(string email, string password)
+
+        public Usuario getUserAuth(string email, string password)
         {
             string crytpPasswd = Cryptography.EncrypthAES(password);
 
-            return repository.login(email, crytpPasswd);
+            return repository.getUserAuth(email, crytpPasswd);
         }
+
+       
     }
 }

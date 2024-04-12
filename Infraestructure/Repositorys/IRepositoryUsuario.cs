@@ -9,6 +9,6 @@ namespace Infraestructure.Repositorys
 {
     public interface IRepositoryUsuario
     {
-        LoginDaTa login(string email, string password);
+        Usuario getUserAuth(string email, string password);
     }
 }

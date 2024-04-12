@@ -1,6 +1,7 @@
 ﻿using AplicationCore.Utils;
 using DataVox.Models;
 using Infraestructure.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Models;
@@ -19,7 +20,9 @@ namespace DataVox.Controllers
         private readonly IConfiguration Configuration;
         public ReportController(IConfiguration configuration ) {
             Configuration = configuration;
-        }   
+        }
+
+        [Authorize]
         [HttpGet]
         [Route("full")]
         public async Task<IActionResult> GetPersonReport(string identification)
@@ -29,12 +32,7 @@ namespace DataVox.Controllers
             ResponseModel response = new ResponseModel();
             try
             {
-                var identity = HttpContext.User.Identity as ClaimsIdentity;
-
-                var rTokenVeficacion = Authentication.ValidateToken(identity);
-
-                if (rTokenVeficacion.StatusCode==200)
-                {
+               
                     IServiceReporte service = new ServiceReport(Configuration);
 
                     Report report = await service.PersonReport(identification);
@@ -52,17 +50,7 @@ namespace DataVox.Controllers
                     }
 
                     return Ok(response);
-                }
-                else
-                {
-                    response.StatusCode = 401;
-                    response.Message = "No autorizado";
-                    response.Data = null;
-                    return Unauthorized(response);
-                }
-
-
-               
+                
             }
             catch (Exception e)
             {
@@ -75,6 +63,7 @@ namespace DataVox.Controllers
 
         [HttpGet]
         [Route("fullXML")]
+        
         public async Task<IActionResult> GetPersonReportXML(string? identification)
         {
             ReportToXmlConverter converter = new ReportToXmlConverter();

@@ -9,6 +9,7 @@ namespace AplicationCore.Services
 {
     public interface IServiceUsuario
     {
-        LoginDaTa login(string email, string password);
+        Usuario getUserAuth(string email, string password);
+
     }
 }

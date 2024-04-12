@@ -1,12 +1,17 @@
 ﻿using AplicationCore.Services;
+using AplicationCore.Services.Auth;
+using AplicationCore.Utils;
+using Azure;
 using DataVox.Models;
 using Infraestructure.Models;
+using Infraestructure.Models.Auth;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Repository.Models;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
@@ -19,84 +24,61 @@ namespace DataVox.Controllers
     public class UserController : ControllerBase
     {
         private readonly IConfiguration Configuration;
-
+        private readonly IAutorizacionService AutorizacionService;
 
         public UserController(IConfiguration configuration)
         {
             Configuration = configuration;
+          
         }
 
         [HttpPost]
-        [Route("Login")]
-        public dynamic Login([FromBody] Object reqDATA)
+        [Route("Autenticar")]
+        public async Task<IActionResult> Autenticar([FromBody] AutorizacionRequest autorizacion)
         {
-            try
-            {
-                IServiceUsuario service = new ServiceUsuario(Configuration);
-                ResponseModel response = new ResponseModel();
+            autorizacion.Password = Cryptography.EncrypthAES(autorizacion.Password);
+            var jwt = Configuration.GetSection("Jwt").Get<JWT>();
 
-                var data = JsonConvert.DeserializeObject<dynamic>(reqDATA.ToString());
+            IAutorizacionService autorizacionService = new AutorizacionService(Configuration, jwt.Key);
+            var resultado_autorizacion = await autorizacionService.DevolverToken(autorizacion);
+            if (resultado_autorizacion == null)
+                return Unauthorized();
 
-                string user = data.user.ToString();
-                string pass = data.pass.ToString();
+            return Ok(resultado_autorizacion);
 
-                LoginDaTa loginData = service.login(user, pass);
-
-                Usuario usuario = new Usuario();
-                usuario = loginData.user;
-
-                if (loginData.Code==401)
-                {
-                    response.StatusCode = 401;
-                    response.Message = "No autorizado verifique las credenciales";
-                    response.Data = null;
-
-                    return Unauthorized(response);
-                }
-                else
-                {
-                    #region JWT
-                    var jwt = Configuration.GetSection("Jwt").Get<Jwt>();
-                    string userJson = System.Text.Json.JsonSerializer.Serialize(usuario);
-
-                    var claims = new List<Claim> {
-                    new Claim(JwtRegisteredClaimNames.Sub, jwt.Subject),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Iat, DateTime.Now.ToString()),
-                    new Claim("Email", usuario.Email),
-                    new Claim("IdCliente", usuario.IdCliente.ToString()),
-                    new Claim("Id", usuario.IdUsuario.ToString()),
-                    new Claim("User", userJson),
-                };
-
-                    var KEY = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));
-
-                    var signIn = new SigningCredentials(KEY, SecurityAlgorithms.HmacSha256);
-
-                    var token = new JwtSecurityToken(
-
-                        jwt.Isssuer,
-                        jwt.Audience,
-                        claims,
-                        expires: DateTime.Now.AddMinutes(60),
-                        signingCredentials: signIn
-
-                    );
-                    #endregion
-                    response.StatusCode = 200;
-                    response.Message = "Usuario verificado correctamente";
-                    response.Data = new JwtSecurityTokenHandler().WriteToken(token);
-
-                    return Ok(response);
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
+
+        [HttpPost]
+        [Route("RefreshToken")]
+        public async Task<IActionResult> ObtenerRefreshToken([FromBody] RefreshTokenRequest request)
+        {
+
+            var jwt = Configuration.GetSection("Jwt").Get<JWT>();
+
+            IAutorizacionService autorizacionService = new AutorizacionService(Configuration, jwt.Key);
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenExpiradoSupuestamente = tokenHandler.ReadJwtToken(request.TokenExpirado);
+
+            if (tokenExpiradoSupuestamente.ValidTo > DateTime.UtcNow)
+                return BadRequest(new AutorizacionResponse { Resultado = false, Msg = "Token no ha expirado" });
+
+            string idUsuario = tokenExpiradoSupuestamente.Claims.First(x =>
+                x.Type == JwtRegisteredClaimNames.NameId).Value.ToString();
+
+
+            var autorizacionResponse = await autorizacionService.DevolverRefreshToken(request, int.Parse(idUsuario));
+
+            if (autorizacionResponse.Resultado)
+                return Ok(autorizacionResponse);
+            else
+                return BadRequest(autorizacionResponse);
+
+
+
+
+        }
+
 
 
     }
