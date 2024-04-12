@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AplicationCore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -9,14 +10,15 @@ namespace AplicationCore.Utils
 {
     public class Authentication
     {
-        public static dynamic ValidateToken(ClaimsIdentity identity)
+        public static Auth ValidateToken(ClaimsIdentity identity)
         {
 			try
 			{
                 if (identity.Claims.Count() == 0)
                 {
                     return 
-                    new {
+                    new Auth
+                    {
                          StatusCode =401,
                          Message ="Token incorrecto",
                          Data=""
@@ -27,7 +29,7 @@ namespace AplicationCore.Utils
                 {
                     var user = identity.Claims.FirstOrDefault(x=> x.Type == "User").Value;
                     return
-                    new
+                    new Auth
                     {
                         StatusCode = 200,
                         Message = "Token correcto",

@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\services\\services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|solutionrelative:services\\services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,8 +11,24 @@
       "RelativeMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|solutionrelative:services\\utils\\authentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\services\\models\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|solutionrelative:services\\models\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\services\\services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|solutionrelative:services\\services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\services\\utils\\reporttoxmlconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -75,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ServiceUsuario.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Services\\ServiceUsuario.cs",
               "RelativeDocumentMoniker": "Services\\Services\\ServiceUsuario.cs",
@@ -111,11 +111,12 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T21:07:41.36Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Program.cs",
               "RelativeDocumentMoniker": "DataVox\\Program.cs",
@@ -129,13 +130,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\appsettings.json",
               "RelativeDocumentMoniker": "DataVox\\appsettings.json",
               "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\appsettings.json",
               "RelativeToolTip": "DataVox\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-04-11T20:47:08.63Z",
               "IsPinned": true,
@@ -143,13 +144,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "DataVox\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\UserController.cs",
               "RelativeToolTip": "DataVox\\Controllers\\UserController.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAiwDIAAABQAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAiwCoAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T21:44:36.554Z",
               "IsPinned": true,
@@ -157,41 +158,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ResponseModel.cs",
-              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Models\\ResponseModel.cs",
-              "RelativeDocumentMoniker": "DataVox\\Models\\ResponseModel.cs",
-              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Models\\ResponseModel.cs",
-              "RelativeToolTip": "DataVox\\Models\\ResponseModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T23:19:04.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Authentication.cs",
-              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Utils\\Authentication.cs",
-              "RelativeDocumentMoniker": "Services\\Utils\\Authentication.cs",
-              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Utils\\Authentication.cs",
-              "RelativeToolTip": "Services\\Utils\\Authentication.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T23:02:45.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ReportController.cs",
               "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "DataVox\\Controllers\\ReportController.cs",
               "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\ReportController.cs",
               "RelativeToolTip": "DataVox\\Controllers\\ReportController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAADwAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T23:09:32.622Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Auth.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Models\\Auth.cs",
+              "RelativeDocumentMoniker": "Services\\Models\\Auth.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Models\\Auth.cs",
+              "RelativeToolTip": "Services\\Models\\Auth.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-11T23:57:21.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Authentication.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Utils\\Authentication.cs",
+              "RelativeDocumentMoniker": "Services\\Utils\\Authentication.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Utils\\Authentication.cs",
+              "RelativeToolTip": "Services\\Utils\\Authentication.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB8AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-11T23:02:45.286Z",
               "EditorCaption": ""
             },
             {

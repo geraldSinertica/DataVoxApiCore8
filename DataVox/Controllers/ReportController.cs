@@ -1,4 +1,5 @@
-﻿using DataVox.Models;
+﻿using AplicationCore.Utils;
+using DataVox.Models;
 using Infraestructure.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Repository.Models;
 using Services.Servicess;
 using Services.Utils;
 using System.Net;
+using System.Security.Claims;
 using System.Text.Json;
 
 namespace DataVox.Controllers
@@ -22,26 +24,45 @@ namespace DataVox.Controllers
         [Route("full")]
         public async Task<IActionResult> GetPersonReport(string identification)
         {
+            
+
             ResponseModel response = new ResponseModel();
             try
             {
-                IServiceReporte service = new ServiceReport(Configuration);
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
 
-                Report report = await service.PersonReport(identification);
+                var rTokenVeficacion = Authentication.ValidateToken(identity);
 
-                if (report == null)
+                if (rTokenVeficacion.StatusCode==200)
                 {
-                    response.StatusCode = (int)HttpStatusCode.NotFound;
-                    response.Message = "Asset no encontrado, verifique el id";
+                    IServiceReporte service = new ServiceReport(Configuration);
+
+                    Report report = await service.PersonReport(identification);
+
+                    if (report == null)
+                    {
+                        response.StatusCode = (int)HttpStatusCode.NotFound;
+                        response.Message = "Asset no encontrado, verifique el id";
+                    }
+                    else
+                    {
+                        response.StatusCode = (int)HttpStatusCode.OK;
+                        response.Message = "Reporte encontrado";
+                        response.Data = report;
+                    }
+
+                    return Ok(response);
                 }
                 else
                 {
-                    response.StatusCode = (int)HttpStatusCode.OK;
-                    response.Message = "Reporte encontrado";
-                    response.Data = report;
+                    response.StatusCode = 401;
+                    response.Message = "No autorizado";
+                    response.Data = null;
+                    return Unauthorized(response);
                 }
 
-                return Ok(response);
+
+               
             }
             catch (Exception e)
             {
