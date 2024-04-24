@@ -86,7 +86,7 @@ namespace AplicationCore.Services.Auth
                     Token = token,
                     RefreshToken = refreshToken,
                     FechaCreacion = DateTime.UtcNow,
-                    FechaExpiracion = DateTime.UtcNow.AddMinutes(2)
+                    FechaExpiracion = DateTime.UtcNow.AddMinutes(20)
                 };
 
                 repository.SavehistorialRefreshToken(historialRefreshToken);

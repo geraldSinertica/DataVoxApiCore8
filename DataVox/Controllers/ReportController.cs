@@ -24,7 +24,7 @@ namespace DataVox.Controllers
 
         [Authorize]
         [HttpGet]
-        [Route("full")]
+        [Route("Completo")]
         public async Task<IActionResult> GetPersonReport(string identification)
         {
             ResponseModel response = new ResponseModel();
