@@ -1,4 +1,3 @@
-C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\bin\Debug\net8.0\Infraestructure.deps.json
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\bin\Debug\net8.0\Infraestructure.runtimeconfig.json
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Infraestructure\bin\Debug\net8.0\Infraestructure.dll

@@ -10,5 +10,6 @@ namespace Infraestructure.Repositorys
     public interface IRepositoryUsuario
     {
         Usuario getUserAuth(string email, string password);
+
     }
 }

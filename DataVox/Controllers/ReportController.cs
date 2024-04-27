@@ -1,12 +1,17 @@
-﻿using AplicationCore.Utils;
+﻿using AplicationCore.Services;
+using AplicationCore.Utils;
+using Azure.Core;
 using DataVox.Models;
 using Infraestructure.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using Repository.Models;
 using Services.Servicess;
 using Services.Utils;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text.Json;
@@ -25,15 +30,29 @@ namespace DataVox.Controllers
         [Authorize]
         [HttpGet]
         [Route("Completo")]
-        public async Task<IActionResult> GetPersonReport(string identification)
+        public async Task<IActionResult> GetPersonReport(string identification,int tipoReporte)
         {
             ResponseModel response = new ResponseModel();
+            FacturacionUtil facturacionUtil = new FacturacionUtil();
             try
             {
-               
-                    IServiceReporte service = new ServiceReport(Configuration);
+                var ipAddress = HttpContext.Connection.RemoteIpAddress;
 
-                    Report report = await service.PersonReport(identification);
+                string accessToken =  HttpContext.Request.Headers["Authorization"];
+
+
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var tokenExpiradoSupuestamente = tokenHandler.ReadJwtToken(accessToken.Replace("Bearer ", ""));
+
+                string idUsuario = tokenExpiradoSupuestamente.Claims.First(x =>x.Type == JwtRegisteredClaimNames.NameId).Value.ToString();
+
+                var idCliente = tokenExpiradoSupuestamente.Claims.First(x => x.Type == "IdCliente").Value;
+
+                IServiceReporte service = new ServiceReport(Configuration);
+                IServiceConsulta serviceConsulta = new ServiceConsulta(Configuration);
+
+
+                Report report = await service.PersonReport(identification);
 
                     if (report == null)
                     {
@@ -45,6 +64,9 @@ namespace DataVox.Controllers
                         response.StatusCode = (int)HttpStatusCode.OK;
                         response.Message = "Reporte encontrado";
                         response.Data = report;
+                        var consulta = facturacionUtil.CreateConsulta(ipAddress.ToString(),report.DatosGenerales.InformacionPersonal.PersonId);
+                        var facture = facturacionUtil.createBill(Convert.ToInt32(idUsuario),Convert.ToInt32(idCliente),tipoReporte);
+                        serviceConsulta.AddConsultaYFacturarion(facture,consulta);
                     }
 
                     return Ok(response);

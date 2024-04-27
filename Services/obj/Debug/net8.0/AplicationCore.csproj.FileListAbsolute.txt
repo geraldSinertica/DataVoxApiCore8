@@ -1,4 +1,3 @@
-C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\bin\Debug\net8.0\AplicationCore.deps.json
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\bin\Debug\net8.0\AplicationCore.runtimeconfig.json
 C:\Users\PARDO-PC\Desktop\Sinertica\.netCore\DataVox\Services\bin\Debug\net8.0\AplicationCore.dll

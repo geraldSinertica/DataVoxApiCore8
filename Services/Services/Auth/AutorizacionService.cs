@@ -1,4 +1,5 @@
-﻿using Infraestructure.Models;
+﻿using Azure.Core;
+using Infraestructure.Models;
 using Infraestructure.Models.Auth;
 using Infraestructure.Repositorys;
 using Infraestructure.Repositorys.Auth;
@@ -31,14 +32,16 @@ namespace AplicationCore.Services.Auth
             key= Key;
         }
 
-        private string GenerarToken(string idUsuario)
+        private string GenerarToken(string idUsuario, int idCliente)
         {
 
             var keyBytes = Encoding.UTF8.GetBytes(key);
 
+           
+
             var claims = new ClaimsIdentity();
             claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, idUsuario));
-
+            claims.AddClaim(new Claim("IdCliente", idCliente.ToString()));
             var credencialesToken = new SigningCredentials(
                 new SymmetricSecurityKey(keyBytes),
                 SecurityAlgorithms.HmacSha256Signature
@@ -55,6 +58,7 @@ namespace AplicationCore.Services.Auth
             var tokenConfig = tokenHandler.CreateToken(tokenDescriptor);
 
             string tokenCreado = tokenHandler.WriteToken(tokenConfig);
+
 
             return tokenCreado;
 
@@ -115,8 +119,14 @@ namespace AplicationCore.Services.Auth
                     return new AutorizacionResponse { Resultado = false, Msg = "No existe refreshToken" };
                 }
 
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var tokenExpiradoSupuestamente = tokenHandler.ReadJwtToken(refreshTokenRequest.TokenExpirado);
+
+
+                string? idCliente = tokenExpiradoSupuestamente.Claims.Select(x => x.Type == JwtRegisteredClaimNames.Name).ToString();
+
                 var refreshTokenCreado = GenerarRefreshToken();
-                var tokenCreado = GenerarToken(idUsuario.ToString());
+                var tokenCreado = GenerarToken(idUsuario.ToString(),Convert.ToInt32(idCliente));
 
                 return await GuardarHistorialRefreshToken(idUsuario, tokenCreado, refreshTokenCreado);
 
@@ -139,7 +149,7 @@ namespace AplicationCore.Services.Auth
                 }
 
 
-                string tokenCreado = GenerarToken(usuario.IdUsuario.ToString());
+                string tokenCreado = GenerarToken(usuario.IdUsuario.ToString(),usuario.IdCliente);
 
                 string refreshTokenCreado = GenerarRefreshToken();
 

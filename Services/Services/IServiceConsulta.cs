@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.Repositorys
+namespace AplicationCore.Services
 {
-    public interface IRepositoryConsulta
+    public interface IServiceConsulta
     {
-        List<Consulta> GetAllByPerson(int PersonId);
         void AddConsultaYFacturarion(Facturacion facturacion, Consulta consulta);
     }
 }
