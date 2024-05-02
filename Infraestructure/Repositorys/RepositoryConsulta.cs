@@ -87,15 +87,13 @@ namespace Repository.Repositorys
                 {
                     connection.Open();
 
-                    using (var command = new SqlCommand("InsertarFacturacion", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@IdUsuario", facturacion.IdUsuario));
-                        command.Parameters.Add(new SqlParameter("@IdCliente", facturacion.IdCliente));
-                        command.Parameters.Add(new SqlParameter("@IdTipoReporte", facturacion.TipoReporte));
+                    var command = new SqlCommand("InsertarFacturacion", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdUsuario", facturacion.IdUsuario));
+                    command.Parameters.Add(new SqlParameter("@IdCliente", facturacion.IdCliente));
+                    command.Parameters.Add(new SqlParameter("@IdProducto", facturacion.TipoReporte));
 
-                        command.ExecuteNonQuery(); // Ejecutar el procedimiento almacenado InsertarFacturacion
-                    }
+                    command.ExecuteNonQuery(); // Ejecutar el procedimiento almacenado InsertarFacturacion
                 }
             }
             catch (DbUpdateException dbEx)
@@ -172,7 +170,7 @@ namespace Repository.Repositorys
         {
             try
             {
-               AddConsulta (consulta);
+              // AddConsulta (consulta);
                
                AddFacturacion(facturacion);
             }
