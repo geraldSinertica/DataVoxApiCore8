@@ -33,40 +33,36 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerJuiciosByPersonaId", connection))
+                     var command = new SqlCommand("ObtenerJuiciosByPersonaId", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    judgments = new List<Juicio>();
+                    while (reader.Read())
+                    {
+
+                        var judgment = new Juicio()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                            IdJuicio = Convert.ToInt32(reader["IdJuicio"]),
+                            Expediente = reader["Expediente"].ToString(),
+                            Descrpcion = reader["Descrpcion"].ToString(),
+                            Caso = reader["Caso"].ToString(),
+                            Asunto = reader["Asunto"].ToString(),
+                            Cuantia = reader["Cuantia"] != DBNull.Value ? Convert.ToDecimal(reader["Cuantia"]) : 0,
+                            MonedaCuantia = reader["MonedaCuantia"] != DBNull.Value ? reader["MonedaCuantia"].ToString() : "",
+                            Oficina = reader["Oficina"].ToString(),
+                            Circuito = reader["Circuito"].ToString(),
+                            Sentencia = reader["Sentencia"].ToString(),
+                            Estado = reader["Estado"].ToString(),
+                            FechaUltimaAct = reader["FechaUltimaAct"] != DBNull.Value ? Convert.ToDateTime(reader["FechaUltimaAct"]) : (DateTime?)null,
+                            FechaCreacion = reader["FechaCreacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaCreacion"]) : (DateTime?)null,
+                            FechaEstado = reader["FechaEstado"] != DBNull.Value ? Convert.ToDateTime(reader["FechaEstado"]) : (DateTime?)null
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                judgments = new List<Juicio>();
-                                while (reader.Read()) 
-                                {
-
-                                    var judgment = new Juicio()
-                                    {
-                                        IdJuicio = Convert.ToInt32(reader["IdJuicio"]),
-                                        Expediente = reader["Expediente"].ToString(),
-                                        Descrpcion = reader["Descrpcion"].ToString(),
-                                        Caso = reader["Caso"].ToString(),
-                                        Asunto = reader["Asunto"].ToString(),
-                                        Cuantia = reader["Cuantia"] != DBNull.Value ? Convert.ToDecimal(reader["Cuantia"]) : 0,
-                                        MonedaCuantia = reader["MonedaCuantia"] != DBNull.Value ? reader["MonedaCuantia"].ToString() : "",
-                                        Oficina = reader["Oficina"].ToString(),
-                                        Circuito = reader["Circuito"].ToString(),
-                                        Sentencia = reader["Sentencia"].ToString(),
-                                        Estado = reader["Estado"].ToString(),
-                                        FechaUltimaAct = reader["FechaUltimaAct"] != DBNull.Value ? Convert.ToDateTime(reader["FechaUltimaAct"]) : (DateTime?)null,
-                                        FechaCreacion = reader["FechaCreacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaCreacion"]) : (DateTime?)null,
-                                        FechaEstado = reader["FechaEstado"] != DBNull.Value ? Convert.ToDateTime(reader["FechaEstado"]) : (DateTime?)null
-                                    };
-
-                                    judgments.Add(judgment); 
-                                }
-                            }
-                        }
+                        judgments.Add(judgment);
                     }
+                }
                 
 
                 return judgments;

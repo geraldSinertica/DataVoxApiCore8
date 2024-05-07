@@ -34,27 +34,23 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerLinderosPorInmueble", connection))
+                     var command = new SqlCommand("ObtenerLinderosPorInmueble", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdInmueble", idState));
+
+                     var reader = command.ExecuteReader();
+                    limits = new List<Limit>();
+                    while (reader.Read())
+                    {
+                        var limit = new Limit()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdInmueble", idState));
+                            PuntoCardinal = reader["PuntoCardinal"] != DBNull.Value ? Convert.ToChar(reader["PuntoCardinal"]) : 'A',
+                            Lindero = reader["Lindero"] != DBNull.Value ? reader["Lindero"].ToString() : ""
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                limits = new List<Limit>();
-                                while (reader.Read())
-                                {
-                                    var limit = new Limit()
-                                    {
-                                        PuntoCardinal = reader["PuntoCardinal"] != DBNull.Value ? Convert.ToChar(reader["PuntoCardinal"]) : 'A',
-                                        Lindero = reader["Lindero"] != DBNull.Value ? reader["Lindero"].ToString() : ""
-                                    };
-
-                                    limits.Add(limit);
-                                }
-                            }
-                        }
+                        limits.Add(limit);
                     }
+                }
                 
 
                 return limits;
@@ -82,45 +78,41 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerGravamenesPorInmueble", connection))
+                     var command = new SqlCommand("ObtenerGravamenesPorInmueble", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdInmueble ", idState));
+
+                     var reader = command.ExecuteReader();
+                    assessments = new List<Assessment>();
+                    while (reader.Read())
+                    {
+
+                        var assessment = new Assessment()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdInmueble ", idState));
+                            CitaGravamen = reader["idGravamen"].ToString(),
+                            Moneda = reader["Moneda"].ToString(),
+                            Monto = Convert.ToDecimal(reader["Monto"]),
+                            FechaInicia = Convert.ToDateTime(reader["FechaInicia"]),
+                            FechaVence = Convert.ToDateTime(reader["FechaVence"]),
+                            FechaInterrupcion = reader["FechaInterrupcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInterrupcion"]) : (DateTime?)null,
+                            Interes = reader["Interes"].ToString(),
+                            FormaPago = reader["FormaPago"].ToString(),
+                            FechaUltActualizacion = reader["FechaUltActualizacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaUltActualizacion"]) : (DateTime?)null,
+                            ClaseResponsabilidad = reader["ClaseResponsabilidad"] != DBNull.Value ? Convert.ToChar(reader["ClaseResponsabilidad"]) : (char?)null,
+                            TomoCredito = reader["TomoCredito"] != DBNull.Value ? Convert.ToInt32(reader["TomoCredito"]) : (int?)null,
+                            AsientoCredito = reader["AsientoCredito"] != DBNull.Value ? Convert.ToInt32(reader["AsientoCredito"]) : (int?)null,
+                            ConsecutivoCredito = reader["ConsecutivoCredito"] != DBNull.Value ? Convert.ToInt32(reader["ConsecutivoCredito"]) : (int?)null,
+                            SecuenciaCredito = reader["SecuenciaCredito"] != DBNull.Value ? Convert.ToInt32(reader["SecuenciaCredito"]) : (int?)null,
+                            SubsecuenciaCredito = reader["SubsecuenciaCredito"] != DBNull.Value ? Convert.ToInt32(reader["SubsecuenciaCredito"]) : (int?)null,
+                            Grado = reader["Grado"] != DBNull.Value ? Convert.ToInt32(reader["Grado"]) : (int?)null,
+                            ReferenciaFinca = reader["Referencia_Finca"].ToString(),
+                            ReferenciaGravamen = reader["Referencia_Gravamen"].ToString(),
+                            BaseRemate = reader["Base_Remate"].ToString()
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                assessments = new List<Assessment>();
-                                while (reader.Read())
-                                {
-
-                                    var assessment = new Assessment()
-                                    {
-                                        CitaGravamen = reader["idGravamen"].ToString(),
-                                        Moneda = reader["Moneda"].ToString(),
-                                        Monto = Convert.ToDecimal(reader["Monto"]),
-                                        FechaInicia = Convert.ToDateTime(reader["FechaInicia"]),
-                                        FechaVence = Convert.ToDateTime(reader["FechaVence"]),
-                                        FechaInterrupcion = reader["FechaInterrupcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInterrupcion"]) : (DateTime?)null,
-                                        Interes = reader["Interes"].ToString(),
-                                        FormaPago = reader["FormaPago"].ToString(),
-                                        FechaUltActualizacion = reader["FechaUltActualizacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaUltActualizacion"]) : (DateTime?)null,
-                                        ClaseResponsabilidad = reader["ClaseResponsabilidad"] != DBNull.Value ? Convert.ToChar(reader["ClaseResponsabilidad"]) : (char?)null,
-                                        TomoCredito = reader["TomoCredito"] != DBNull.Value ? Convert.ToInt32(reader["TomoCredito"]) : (int?)null,
-                                        AsientoCredito = reader["AsientoCredito"] != DBNull.Value ? Convert.ToInt32(reader["AsientoCredito"]) : (int?)null,
-                                        ConsecutivoCredito = reader["ConsecutivoCredito"] != DBNull.Value ? Convert.ToInt32(reader["ConsecutivoCredito"]) : (int?)null,
-                                        SecuenciaCredito = reader["SecuenciaCredito"] != DBNull.Value ? Convert.ToInt32(reader["SecuenciaCredito"]) : (int?)null,
-                                        SubsecuenciaCredito = reader["SubsecuenciaCredito"] != DBNull.Value ? Convert.ToInt32(reader["SubsecuenciaCredito"]) : (int?)null,
-                                        Grado = reader["Grado"] != DBNull.Value ? Convert.ToInt32(reader["Grado"]) : (int?)null,
-                                        ReferenciaFinca = reader["Referencia_Finca"].ToString(),
-                                        ReferenciaGravamen = reader["Referencia_Gravamen"].ToString(),
-                                        BaseRemate = reader["Base_Remate"].ToString()
-                                    };
-
-                                    assessments.Add(assessment);
-                                }
-                            }
-                        }
+                        assessments.Add(assessment);
                     }
+                }
                 
 
                 return assessments;
@@ -148,34 +140,30 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerGravamenesPorInmueble", connection))
+                     var command = new SqlCommand("ObtenerGravamenesPorInmueble", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdInmueble ", idState));
+
+                     var reader = command.ExecuteReader();
+                    annotations = new List<Annotation>();
+                    while (reader.Read())
+                    {
+
+                        var annotation = new Annotation()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdInmueble ", idState));
+                            IdAnotacion = Convert.ToInt32(reader["idAnotacion"]),
+                            CitaAnotacion = reader["CitaAnotacion"].ToString(),
+                            TipoOperacion = reader["TipoOperacion"].ToString(),
+                            FechaAnotacion = reader["FechaAnotacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaAnotacion"]) : (DateTime?)null,
+                            Derecho = reader["Derecho"] != DBNull.Value ? Convert.ToInt16(reader["Derecho"]) : (short?)null,
+                            IdGravamen = reader["IdGravamen"] != DBNull.Value ? Convert.ToInt32(reader["IdGravamen"]) : (int?)null,
+                            CreditoAsociado = reader["CreditoAsociado"].ToString(),
+                            SecuenciaAfectada = reader["SecuenciaAfectada"] != DBNull.Value ? Convert.ToInt16(reader["SecuenciaAfectada"]) : (short?)null
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                annotations = new List<Annotation>();
-                                while (reader.Read())
-                                {
-
-                                    var annotation = new Annotation()
-                                    {
-                                        IdAnotacion = Convert.ToInt32(reader["idAnotacion"]),
-                                        CitaAnotacion = reader["CitaAnotacion"].ToString(),
-                                        TipoOperacion = reader["TipoOperacion"].ToString(),
-                                        FechaAnotacion = reader["FechaAnotacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaAnotacion"]) : (DateTime?)null,
-                                        Derecho = reader["Derecho"] != DBNull.Value ? Convert.ToInt16(reader["Derecho"]) : (short?)null,
-                                        IdGravamen = reader["IdGravamen"] != DBNull.Value ? Convert.ToInt32(reader["IdGravamen"]) : (int?)null,
-                                        CreditoAsociado = reader["CreditoAsociado"].ToString(),
-                                        SecuenciaAfectada = reader["SecuenciaAfectada"] != DBNull.Value ? Convert.ToInt16(reader["SecuenciaAfectada"]) : (short?)null
-                                    };
-
-                                    annotations.Add(annotation);
-                                }
-                            }
-                        }
+                        annotations.Add(annotation);
                     }
+                }
                 
 
                 return annotations;
@@ -202,29 +190,25 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerInmueblesPorPersona", connection))
+                     var command = new SqlCommand("ObtenerInmueblesPorPersona", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    states = new List<RealEstate>();
+                    while (reader.Read())
+                    {
+
+                        var state = new RealEstate()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                states = new List<RealEstate>();
-                                while (reader.Read())
-                                {
-
-                                    var state = new RealEstate()
-                                    {
-
-                                    };
-                                    state.Limits = GetLimitByState(state.IdInmueble);
-                                    state.Assessments = GetAssessmentByState(state.IdInmueble);
-                                    state.Annotations = GetAnnotationsByState(state.IdInmueble);
-                                    states.Add(state);
-                                }
-                            }
-                        }
+                        };
+                        state.Limits = GetLimitByState(state.IdInmueble);
+                        state.Assessments = GetAssessmentByState(state.IdInmueble);
+                        state.Annotations = GetAnnotationsByState(state.IdInmueble);
+                        states.Add(state);
                     }
+                }
                 
 
                 return states;
@@ -253,56 +237,52 @@ namespace Repository.Repositorys
                 {
                     connection.Open();
 
-                    using (var command = new SqlCommand("ObtenerMueblesPorPersona", connection))
+                     var command = new SqlCommand("ObtenerMueblesPorPersona", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    vehicles = new List<Vehicles>();
+                    while (reader.Read())
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
 
-                        using (var reader = command.ExecuteReader())
+                        var vehicle = new Vehicles()
                         {
-                            vehicles = new List<Vehicles>();
-                            while (reader.Read())
-                            {
+                            IdMueble = Convert.ToInt32(reader["IdMueble"]),
+                            Placa = reader["Placa"].ToString(),
+                            TipoBien = reader["TipoBien"].ToString(),
+                            NumeroVIN = reader["NumeroVIN"].ToString(),
+                            NumeroChasis = reader["NumeroChasis"].ToString(),
+                            Marca = reader["Marca"].ToString(),
+                            Carroceria = reader["Carroceria"].ToString(),
+                            AnoFabricacion = Convert.ToInt32(reader["AnoFabricacion"]),
+                            CapacidadPasajeros = reader["CapacidadPasajeros"] != DBNull.Value ? Convert.ToInt16(reader["CapacidadPasajeros"]) : (short?)null,
+                            NumeroMotor = reader["NumeroMotor"].ToString(),
+                            NumeroSerieMotor = reader["NumeroSerieMotor"].ToString(),
+                            FabricanteMotor = reader["FabricanteMotor"].ToString(),
+                            ClaseBien = reader["ClaseBien"].ToString(),
+                            CodigoBien = reader["CodigoBien"].ToString(),
+                            NumeroRegistral = reader["NumeroRegistral"] != DBNull.Value ? Convert.ToDecimal(reader["NumeroRegistral"]) : (decimal?)null,
+                            TomoInscripcion = reader["TomoInscripcion"].ToString(),
+                            AsientoInscripcion = reader["AsientoInscripcion"].ToString(),
+                            SecuenciaInscripcion = reader["SecuenciaInscripcion"].ToString(),
+                            FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : (DateTime?)null,
+                            NumIdAnterior = reader["NumIdAnterior"].ToString(),
+                            CitasAnteriores = reader["CitasAnteriores"].ToString(),
+                            ValorHaciendaInscripcion = reader["ValorHaciendaInscripcion"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaInscripcion"]) : (decimal?)null,
+                            ValorHaciendaOficial = reader["ValorHaciendaOficial"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaOficial"]) : (decimal?)null,
+                            ValorContrato = reader["ValorContrato"] != DBNull.Value ? Convert.ToDecimal(reader["ValorContrato"]) : (decimal?)null,
+                            EstadoActual = reader["EstadoActual"].ToString(),
+                            EstadoActualTributario = reader["EstadoActualTributario"].ToString(),
+                            Uso = reader["Uso"].ToString(),
+                            TomoUltMovimiento = reader["TomoUltMovimiento"].ToString(),
+                            AsientoUltMovimiento = reader["AsientoUltMovimiento"].ToString(),
+                            SecuenciaUltMovimiento = reader["SecuenciaUltMovimiento"].ToString(),
+                            FechaUltMovimiento = reader["FechaUltMovimiento"] != DBNull.Value ? reader["FechaUltMovimiento"].ToString() : null,
+                            IdMoneda = reader["IdMoneda"] != DBNull.Value ? Convert.ToInt32(reader["IdMoneda"]) : (int?)null
+                        };
 
-                                var vehicle = new Vehicles()
-                                {
-                                    IdMueble = Convert.ToInt32(reader["IdMueble"]),
-                                    Placa = reader["Placa"].ToString(),
-                                    TipoBien = reader["TipoBien"].ToString(),
-                                    NumeroVIN = reader["NumeroVIN"].ToString(),
-                                    NumeroChasis = reader["NumeroChasis"].ToString(),
-                                    Marca = reader["Marca"].ToString(),
-                                    Carroceria = reader["Carroceria"].ToString(),
-                                    AnoFabricacion = Convert.ToInt32(reader["AnoFabricacion"]),
-                                    CapacidadPasajeros = reader["CapacidadPasajeros"] != DBNull.Value ? Convert.ToInt16(reader["CapacidadPasajeros"]) : (short?)null,
-                                    NumeroMotor = reader["NumeroMotor"].ToString(),
-                                    NumeroSerieMotor = reader["NumeroSerieMotor"].ToString(),
-                                    FabricanteMotor = reader["FabricanteMotor"].ToString(),
-                                    ClaseBien = reader["ClaseBien"].ToString(),
-                                    CodigoBien = reader["CodigoBien"].ToString(),
-                                    NumeroRegistral = reader["NumeroRegistral"] != DBNull.Value ? Convert.ToDecimal(reader["NumeroRegistral"]) : (decimal?)null,
-                                    TomoInscripcion = reader["TomoInscripcion"].ToString(),
-                                    AsientoInscripcion = reader["AsientoInscripcion"].ToString(),
-                                    SecuenciaInscripcion = reader["SecuenciaInscripcion"].ToString(),
-                                    FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : (DateTime?)null,
-                                    NumIdAnterior = reader["NumIdAnterior"].ToString(),
-                                    CitasAnteriores = reader["CitasAnteriores"].ToString(),
-                                    ValorHaciendaInscripcion = reader["ValorHaciendaInscripcion"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaInscripcion"]) : (decimal?)null,
-                                    ValorHaciendaOficial = reader["ValorHaciendaOficial"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaOficial"]) : (decimal?)null,
-                                    ValorContrato = reader["ValorContrato"] != DBNull.Value ? Convert.ToDecimal(reader["ValorContrato"]) : (decimal?)null,
-                                    EstadoActual = reader["EstadoActual"].ToString(),
-                                    EstadoActualTributario = reader["EstadoActualTributario"].ToString(),
-                                    Uso = reader["Uso"].ToString(),
-                                    TomoUltMovimiento = reader["TomoUltMovimiento"].ToString(),
-                                    AsientoUltMovimiento = reader["AsientoUltMovimiento"].ToString(),
-                                    SecuenciaUltMovimiento = reader["SecuenciaUltMovimiento"].ToString(),
-                                    FechaUltMovimiento = reader["FechaUltMovimiento"] != DBNull.Value ? reader["FechaUltMovimiento"].ToString() : null,
-                                    IdMoneda = reader["IdMoneda"] != DBNull.Value ? Convert.ToInt32(reader["IdMoneda"]) : (int?)null
-                                };
-
-                                vehicles.Add(vehicle);
-                            }
-                        }
+                        vehicles.Add(vehicle);
                     }
                 }
 
@@ -336,63 +316,59 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerBuquesPorPersona", connection))
+                     var command = new SqlCommand("ObtenerBuquesPorPersona", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    ships = new List<Ships>();
+                    while (reader.Read())
+                    {
+
+                        var ship = new Ships()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                            IdMueble = Convert.ToInt32(reader["IdMueble"]),
+                            Placa = reader["Placa"].ToString(),
+                            TipoBien = reader["TipoBien"].ToString(),
+                            NumeroSerie = reader["NumeroSerie"].ToString(),
+                            NumeroChasis = reader["NumeroChasis"].ToString(),
+                            NombreBuque = reader["NombreBuque"].ToString(),
+                            IdMarca = reader["Marca"].ToString(),
+                            AnoConstruccion = Convert.ToInt32(reader["AnoConstruccion"]),
+                            NumeroCasco = reader["NumeroCasco"].ToString(),
+                            NumeroManga = Convert.ToDecimal(reader["NumeroManga"]),
+                            NumeroEslora = Convert.ToDecimal(reader["NumeroEslora"]),
+                            NumeroPuntal = Convert.ToDecimal(reader["NumeroPuntal"]),
+                            NombreConstructor = reader["NombreConstructor"].ToString(),
+                            LugarConstruccion = reader["LugarConstruccion"].ToString(),
+                            NumeroMotor = reader["NumeroMotor"].ToString(),
+                            NumeroSerieMotor = reader["NumeroSerieMotor"].ToString(),
+                            FabricanteMotor = reader["FabricanteMotor"].ToString(),
+                            ClaseBien = reader["ClaseBien"].ToString(),
+                            CodigoBien = reader["CodigoBien"].ToString(),
+                            NumeroRegistral = reader["NumeroRegistral"] != DBNull.Value ? Convert.ToDecimal(reader["NumeroRegistral"]) : (decimal?)null,
+                            TomoInscripcion = reader["TomoInscripcion"].ToString(),
+                            AsientoInscripcion = reader["AsientoInscripcion"].ToString(),
+                            SecuenciaInscripcion = reader["SecuenciaInscripcion"].ToString(),
+                            FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : (DateTime?)null,
+                            NumIdAnterior = reader["NumIdAnterior"].ToString(),
+                            CitasAnteriores = reader["CitasAnteriores"].ToString(),
+                            ValorHaciendaInscripcion = reader["ValorHaciendaInscripcion"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaInscripcion"]) : (decimal?)null,
+                            ValorHaciendaOficial = reader["ValorHaciendaOficial"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaOficial"]) : (decimal?)null,
+                            ValorContrato = reader["ValorContrato"] != DBNull.Value ? Convert.ToDecimal(reader["ValorContrato"]) : (decimal?)null,
+                            EstadoActual = reader["EstadoActual"].ToString(),
+                            EstadoActualTributario = reader["EstadoActualTributario"].ToString(),
+                            Uso = reader["Uso"].ToString(),
+                            TomoUltMovimiento = reader["TomoUltMovimiento"].ToString(),
+                            AsientoUltMovimiento = reader["AsientoUltMovimiento"].ToString(),
+                            SecuenciaUltMovimiento = reader["SecuenciaUltMovimiento"].ToString(),
+                            FechaUltMovimiento = reader["FechaUltMovimiento"].ToString(),
+                            IdMoneda = reader["IdMoneda"] != DBNull.Value ? Convert.ToInt32(reader["IdMoneda"]) : (int?)null
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                ships = new List<Ships>();
-                                while (reader.Read())
-                                {
-
-                                    var ship = new Ships()
-                                    {
-                                        IdMueble = Convert.ToInt32(reader["IdMueble"]),
-                                        Placa = reader["Placa"].ToString(),
-                                        TipoBien = reader["TipoBien"].ToString(),
-                                        NumeroSerie = reader["NumeroSerie"].ToString(),
-                                        NumeroChasis = reader["NumeroChasis"].ToString(),
-                                        NombreBuque = reader["NombreBuque"].ToString(),
-                                        IdMarca = reader["Marca"].ToString(),
-                                        AnoConstruccion = Convert.ToInt32(reader["AnoConstruccion"]),
-                                        NumeroCasco = reader["NumeroCasco"].ToString(),
-                                        NumeroManga = Convert.ToDecimal(reader["NumeroManga"]),
-                                        NumeroEslora = Convert.ToDecimal(reader["NumeroEslora"]),
-                                        NumeroPuntal = Convert.ToDecimal(reader["NumeroPuntal"]),
-                                        NombreConstructor = reader["NombreConstructor"].ToString(),
-                                        LugarConstruccion = reader["LugarConstruccion"].ToString(),
-                                        NumeroMotor = reader["NumeroMotor"].ToString(),
-                                        NumeroSerieMotor = reader["NumeroSerieMotor"].ToString(),
-                                        FabricanteMotor = reader["FabricanteMotor"].ToString(),
-                                        ClaseBien = reader["ClaseBien"].ToString(),
-                                        CodigoBien = reader["CodigoBien"].ToString(),
-                                        NumeroRegistral = reader["NumeroRegistral"] != DBNull.Value ? Convert.ToDecimal(reader["NumeroRegistral"]) : (decimal?)null,
-                                        TomoInscripcion = reader["TomoInscripcion"].ToString(),
-                                        AsientoInscripcion = reader["AsientoInscripcion"].ToString(),
-                                        SecuenciaInscripcion = reader["SecuenciaInscripcion"].ToString(),
-                                        FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : (DateTime?)null,
-                                        NumIdAnterior = reader["NumIdAnterior"].ToString(),
-                                        CitasAnteriores = reader["CitasAnteriores"].ToString(),
-                                        ValorHaciendaInscripcion = reader["ValorHaciendaInscripcion"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaInscripcion"]) : (decimal?)null,
-                                        ValorHaciendaOficial = reader["ValorHaciendaOficial"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaOficial"]) : (decimal?)null,
-                                        ValorContrato = reader["ValorContrato"] != DBNull.Value ? Convert.ToDecimal(reader["ValorContrato"]) : (decimal?)null,
-                                        EstadoActual = reader["EstadoActual"].ToString(),
-                                        EstadoActualTributario = reader["EstadoActualTributario"].ToString(),
-                                        Uso = reader["Uso"].ToString(),
-                                        TomoUltMovimiento = reader["TomoUltMovimiento"].ToString(),
-                                        AsientoUltMovimiento = reader["AsientoUltMovimiento"].ToString(),
-                                        SecuenciaUltMovimiento = reader["SecuenciaUltMovimiento"].ToString(),
-                                        FechaUltMovimiento = reader["FechaUltMovimiento"].ToString(),
-                                        IdMoneda = reader["IdMoneda"] != DBNull.Value ? Convert.ToInt32(reader["IdMoneda"]) : (int?)null
-                                    };
-
-                                    ships.Add(ship);
-                                }
-                            }
-                        }
+                        ships.Add(ship);
                     }
+                }
                 
 
                 return ships;
@@ -420,60 +396,56 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerInmueblesPorPersona", connection))
+                     var command = new SqlCommand("ObtenerInmueblesPorPersona", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                    var reader = command.ExecuteReader();
+                    aircrafts = new List<Aircraft>();
+                    while (reader.Read())
+                    {
+
+                        var aircraft = new Aircraft()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                            IdMueble = Convert.ToInt32(reader["IdMueble"]),
+                            Placa = reader["Placa"].ToString(),
+                            TipoBien = reader["TipoBien"].ToString(),
+                            NumeroSerie = reader["NumeroSerie"].ToString(),
+                            IdMarca = reader["Marca"].ToString(),
+                            AnoFabricacion = reader["AnoFabricacion"] != DBNull.Value ? Convert.ToDecimal(reader["AnoFabricacion"]) : (decimal?)null,
+                            Estilo = reader["Estilo"].ToString(),
+                            Modelo = reader["Modelo"].ToString(),
+                            Fabricante = reader["Fabricante"].ToString(),
+                            PesoMaximo = reader["PesoMaximo"] != DBNull.Value ? Convert.ToDecimal(reader["PesoMaximo"]) : (decimal?)null,
+                            PesoVacio = reader["PesoVacio"] != DBNull.Value ? Convert.ToDecimal(reader["PesoVacio"]) : (decimal?)null,
+                            NumeroMotor = reader["NumeroMotor"].ToString(),
+                            NumeroSerieMotor = reader["NumeroSerieMotor"].ToString(),
+                            FabricanteMotor = reader["FabricanteMotor"].ToString(),
+                            ClaseBien = reader["ClaseBien"].ToString(),
+                            CodigoBien = reader["CodigoBien"].ToString(),
+                            NumeroRegistral = reader["NumeroRegistral"] != DBNull.Value ? Convert.ToDecimal(reader["NumeroRegistral"]) : (decimal?)null,
+                            TomoInscripcion = reader["TomoInscripcion"].ToString(),
+                            AsientoInscripcion = reader["AsientoInscripcion"].ToString(),
+                            SecuenciaInscripcion = reader["SecuenciaInscripcion"].ToString(),
+                            FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : (DateTime?)null,
+                            NumIdAnterior = reader["NumIdAnterior"].ToString(),
+                            CitasAnteriores = reader["CitasAnteriores"].ToString(),
+                            ValorHaciendaInscripcion = reader["ValorHaciendaInscripcion"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaInscripcion"]) : (decimal?)null,
+                            ValorHaciendaOficial = reader["ValorHaciendaOficial"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaOficial"]) : (decimal?)null,
+                            ValorContrato = reader["ValorContrato"] != DBNull.Value ? Convert.ToDecimal(reader["ValorContrato"]) : (decimal?)null,
+                            EstadoActual = reader["EstadoActual"].ToString(),
+                            EstadoActualTributario = reader["EstadoActualTributario"].ToString(),
+                            Uso = reader["Uso"].ToString(),
+                            TomoUltMovimiento = reader["TomoUltMovimiento"].ToString(),
+                            AsientoUltMovimiento = reader["AsientoUltMovimiento"].ToString(),
+                            SecuenciaUltMovimiento = reader["SecuenciaUltMovimiento"].ToString(),
+                            FechaUltMovimiento = reader["FechaUltMovimiento"].ToString(),
+                            IdMoneda = reader["IdMoneda"] != DBNull.Value ? Convert.ToInt32(reader["IdMoneda"]) : (int?)null
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                aircrafts = new List<Aircraft>();
-                                while (reader.Read())
-                                {
-
-                                    var aircraft = new Aircraft()
-                                    {
-                                        IdMueble = Convert.ToInt32(reader["IdMueble"]),
-                                        Placa = reader["Placa"].ToString(),
-                                        TipoBien = reader["TipoBien"].ToString(),
-                                        NumeroSerie = reader["NumeroSerie"].ToString(),
-                                        IdMarca = reader["Marca"].ToString(),
-                                        AnoFabricacion = reader["AnoFabricacion"] != DBNull.Value ? Convert.ToDecimal(reader["AnoFabricacion"]) : (decimal?)null,
-                                        Estilo = reader["Estilo"].ToString(),
-                                        Modelo = reader["Modelo"].ToString(),
-                                        Fabricante = reader["Fabricante"].ToString(),
-                                        PesoMaximo = reader["PesoMaximo"] != DBNull.Value ? Convert.ToDecimal(reader["PesoMaximo"]) : (decimal?)null,
-                                        PesoVacio = reader["PesoVacio"] != DBNull.Value ? Convert.ToDecimal(reader["PesoVacio"]) : (decimal?)null,
-                                        NumeroMotor = reader["NumeroMotor"].ToString(),
-                                        NumeroSerieMotor = reader["NumeroSerieMotor"].ToString(),
-                                        FabricanteMotor = reader["FabricanteMotor"].ToString(),
-                                        ClaseBien = reader["ClaseBien"].ToString(),
-                                        CodigoBien = reader["CodigoBien"].ToString(),
-                                        NumeroRegistral = reader["NumeroRegistral"] != DBNull.Value ? Convert.ToDecimal(reader["NumeroRegistral"]) : (decimal?)null,
-                                        TomoInscripcion = reader["TomoInscripcion"].ToString(),
-                                        AsientoInscripcion = reader["AsientoInscripcion"].ToString(),
-                                        SecuenciaInscripcion = reader["SecuenciaInscripcion"].ToString(),
-                                        FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : (DateTime?)null,
-                                        NumIdAnterior = reader["NumIdAnterior"].ToString(),
-                                        CitasAnteriores = reader["CitasAnteriores"].ToString(),
-                                        ValorHaciendaInscripcion = reader["ValorHaciendaInscripcion"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaInscripcion"]) : (decimal?)null,
-                                        ValorHaciendaOficial = reader["ValorHaciendaOficial"] != DBNull.Value ? Convert.ToDecimal(reader["ValorHaciendaOficial"]) : (decimal?)null,
-                                        ValorContrato = reader["ValorContrato"] != DBNull.Value ? Convert.ToDecimal(reader["ValorContrato"]) : (decimal?)null,
-                                        EstadoActual = reader["EstadoActual"].ToString(),
-                                        EstadoActualTributario = reader["EstadoActualTributario"].ToString(),
-                                        Uso = reader["Uso"].ToString(),
-                                        TomoUltMovimiento = reader["TomoUltMovimiento"].ToString(),
-                                        AsientoUltMovimiento = reader["AsientoUltMovimiento"].ToString(),
-                                        SecuenciaUltMovimiento = reader["SecuenciaUltMovimiento"].ToString(),
-                                        FechaUltMovimiento = reader["FechaUltMovimiento"].ToString(),
-                                        IdMoneda = reader["IdMoneda"] != DBNull.Value ? Convert.ToInt32(reader["IdMoneda"]) : (int?)null
-                                    };
-
-                                    aircrafts.Add(aircraft);
-                                }
-                            }
-                        }
+                        aircrafts.Add(aircraft);
                     }
+                }
                 
 
                 return aircrafts;

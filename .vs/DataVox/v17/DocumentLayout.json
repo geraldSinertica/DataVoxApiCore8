@@ -1,37 +1,73 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\",
+  "WorkspaceRootPath": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\infraestructure\\repositorys\\repositoryconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\models\\juicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\models\\juicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\models\\telefono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\models\\telefono.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\infraestructure\\repositorys\\repositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\services\\utils\\facturacionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|solutionrelative:services\\utils\\facturacionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\infraestructure\\models\\consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\models\\consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\services\\services\\auth\\autorizacionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\services\\services\\auth\\autorizacionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|solutionrelative:services\\services\\auth\\autorizacionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\infraestructure\\repositorys\\irepositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositorystates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositorystates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositoryprecalificado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryprecalificado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositorypersona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositorypersona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositoryoperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryoperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositoryjuicios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryjuicios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositoryincomes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryincomes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\repositoryconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\repositoryconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63EBE917-E206-402B-82FC-ECEFDBE15462}|DataVox\\DataVox.csproj|solutionrelative:datavox\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\services\\utils\\facturacionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C7E67D4-F3B7-4C58-8745-CCED44D5E8E4}|Services\\AplicationCore.csproj|solutionrelative:services\\utils\\facturacionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\models\\consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\models\\consulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\irepositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\irepositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\gerpo\\onedrive\\escritorio\\sinertica\\dtavox\\datavoxapicore8\\infraestructure\\repositorys\\irepositoryconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|c:\\users\\pardo-pc\\desktop\\sinertica\\.netcore\\datavox\\infraestructure\\repositorys\\irepositoryconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7DE8ECA-767E-45EE-B2AA-7DE20801355F}|Infraestructure\\Infraestructure.csproj|solutionrelative:infraestructure\\repositorys\\irepositoryconsulta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -42,17 +78,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "ReportController.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\DataVox\\Controllers\\ReportController.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "DataVox\\Controllers\\ReportController.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\DataVox\\Controllers\\ReportController.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Controllers\\ReportController.cs",
               "RelativeToolTip": "DataVox\\Controllers\\ReportController.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAswEoAAAAMAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADYAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T09:45:37.537Z",
               "IsPinned": true,
@@ -60,54 +96,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "AutorizacionService.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Services\\Services\\Auth\\AutorizacionService.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Services\\Auth\\AutorizacionService.cs",
               "RelativeDocumentMoniker": "Services\\Services\\Auth\\AutorizacionService.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Services\\Services\\Auth\\AutorizacionService.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Services\\Auth\\AutorizacionService.cs",
               "RelativeToolTip": "Services\\Services\\Auth\\AutorizacionService.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAD4vyUAAAAMAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwDQAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-26T15:31:14.557Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 14,
               "Title": "Consulta.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Models\\Consulta.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Models\\Consulta.cs",
               "RelativeDocumentMoniker": "Infraestructure\\Models\\Consulta.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Models\\Consulta.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Models\\Consulta.cs",
               "RelativeToolTip": "Infraestructure\\Models\\Consulta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T19:24:41.951Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "FacturacionUtil.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Services\\Utils\\FacturacionUtil.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Utils\\FacturacionUtil.cs",
               "RelativeDocumentMoniker": "Services\\Utils\\FacturacionUtil.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Services\\Utils\\FacturacionUtil.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Services\\Utils\\FacturacionUtil.cs",
               "RelativeToolTip": "Services\\Utils\\FacturacionUtil.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAcwCQAAABvAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACQAAABvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-26T18:23:08.154Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "RepositoryConsulta.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\RepositoryConsulta.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryConsulta.cs",
               "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryConsulta.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\RepositoryConsulta.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryConsulta.cs",
               "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryConsulta.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAYwF0AAAA9AAAA",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAswKwAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-26T15:20:06.189Z",
               "IsPinned": true,
@@ -115,24 +150,141 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RepositoryUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\RepositoryUsuario.cs",
-              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryUsuario.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\RepositoryUsuario.cs",
-              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryUsuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "Juicio.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Models\\Juicio.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Models\\Juicio.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Models\\Juicio.cs",
+              "RelativeToolTip": "Infraestructure\\Models\\Juicio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T15:50:29.122Z",
+              "WhenOpened": "2024-05-06T22:48:53.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Telefono.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Models\\Telefono.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Models\\Telefono.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Models\\Telefono.cs",
+              "RelativeToolTip": "Infraestructure\\Models\\Telefono.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T22:28:59.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RepositoryUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryUsuario.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryUsuario.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryUsuario.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryUsuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T20:47:20.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RepositoryStates.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryStates.cs",
+              "ViewState": "AQIAANcBAAAAAAAAAAAkwJIBAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T20:45:10.435Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "RepositoryPrecalificado.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryPrecalificado.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryPrecalificado.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryPrecalificado.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryPrecalificado.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACcAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T20:44:43.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RepositoryPersona.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryPersona.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryPersona.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryPersona.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryPersona.cs",
+              "ViewState": "AQIAAK8AAAAAAAAAAAAkwDEBAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T20:42:02.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RepositoryOperations.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryOperations.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryOperations.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryOperations.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryOperations.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAEUAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T20:41:35.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RepositoryJuicios.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryJuicios.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryJuicios.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryJuicios.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryJuicios.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAACMAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T20:41:14.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RepositoryIncomes.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryIncomes.cs",
+              "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\RepositoryIncomes.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\RepositoryIncomes.cs",
+              "RelativeToolTip": "Infraestructure\\Repositorys\\RepositoryIncomes.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACQAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T20:40:24.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Program.cs",
+              "RelativeDocumentMoniker": "DataVox\\Program.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\DataVox\\Program.cs",
+              "RelativeToolTip": "DataVox\\Program.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAD8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T19:55:06.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "IRepositoryUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\IRepositoryUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\IRepositoryUsuario.cs",
               "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\IRepositoryUsuario.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\IRepositoryUsuario.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\IRepositoryUsuario.cs",
               "RelativeToolTip": "Infraestructure\\Repositorys\\IRepositoryUsuario.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -140,11 +292,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "IRepositoryConsulta.cs",
-              "DocumentMoniker": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\IRepositoryConsulta.cs",
+              "DocumentMoniker": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\IRepositoryConsulta.cs",
               "RelativeDocumentMoniker": "Infraestructure\\Repositorys\\IRepositoryConsulta.cs",
-              "ToolTip": "C:\\Users\\gerpo\\OneDrive\\Escritorio\\Sinertica\\DtaVox\\DataVoxApiCore8\\Infraestructure\\Repositorys\\IRepositoryConsulta.cs",
+              "ToolTip": "C:\\Users\\PARDO-PC\\Desktop\\Sinertica\\.netCore\\DataVox\\Infraestructure\\Repositorys\\IRepositoryConsulta.cs",
               "RelativeToolTip": "Infraestructure\\Repositorys\\IRepositoryConsulta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

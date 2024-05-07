@@ -35,35 +35,31 @@ namespace Repository.Repositorys
                 {
                     connection.Open();
 
-                    using (var command = new SqlCommand("ObtenerDatosPersonaConIdentificacion", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@Identificacion", identification));
+                     var command = new SqlCommand("ObtenerDatosPersonaConIdentificacion", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@Identificacion", identification));
 
-                        using (var reader = command.ExecuteReader())
+                     var reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        Persona = new PersonalData
                         {
-                            if (reader.Read())
-                            {
-                                Persona = new PersonalData
-                                {
-                                    PersonId = Convert.ToInt32(reader["IdPersona"]),
-                                    Identificacion = reader["Identificacion"].ToString(),
-                                    TipoIdentificacion = Convert.ToInt32(reader["IdIdentificacionTipo"]),
-                                    NombreCompleto = $"{reader["PrimerNombre"].ToString().Trim()} {reader["SegundoNombre"].ToString().Trim()} {reader["PrimerApellido"].ToString().Trim()} {reader["SegundoApellido"].ToString().Trim()}",
-                                    FechaNacimiento = Convert.ToDateTime(reader["FechaNacimiento"]),
-                                    Genero = reader["IdSexo"] != DBNull.Value ? Convert.ToChar(reader["IdSexo"]) : 'E',
-                                    EstadoDeVida = reader["EstadoVida"].ToString(),
-                                    LugarNacimiento = reader["LugarNacimiento"].ToString(),
-                                    EstadoCivil = Convert.ToInt32(reader["IdEstadoCivil"]),
-                                    Nacionalidad = Convert.ToInt32(reader["Nacionalidad"]),
-                                    NombrePadre = reader["NombrePadre"].ToString(),
-                                    NombreMadre = reader["NombreMadre"].ToString(),
-                                    IdentificationIssue = reader["FechaEmision"].ToString(),
-                                    IdentificacionVencimiento = reader["FechaVencimiento"].ToString()
-                                };
-                                Persona.CivilStatusHistoric = GetCivilStatusHistoric(Persona.PersonId);
-                            }
-                        }
+                            PersonId = Convert.ToInt32(reader["IdPersona"]),
+                            Identificacion = reader["Identificacion"].ToString(),
+                            TipoIdentificacion = Convert.ToInt32(reader["IdIdentificacionTipo"]),
+                            NombreCompleto = $"{reader["PrimerNombre"].ToString().Trim()} {reader["SegundoNombre"].ToString().Trim()} {reader["PrimerApellido"].ToString().Trim()} {reader["SegundoApellido"].ToString().Trim()}",
+                            FechaNacimiento = Convert.ToDateTime(reader["FechaNacimiento"]),
+                            Genero = reader["IdSexo"] != DBNull.Value ? Convert.ToChar(reader["IdSexo"]) : 'E',
+                            EstadoDeVida = reader["EstadoVida"].ToString(),
+                            LugarNacimiento = reader["LugarNacimiento"].ToString(),
+                            EstadoCivil = Convert.ToInt32(reader["IdEstadoCivil"]),
+                            Nacionalidad = Convert.ToInt32(reader["Nacionalidad"]),
+                            NombrePadre = reader["NombrePadre"].ToString(),
+                            NombreMadre = reader["NombreMadre"].ToString(),
+                            IdentificationIssue = reader["FechaEmision"].ToString(),
+                            IdentificacionVencimiento = reader["FechaVencimiento"].ToString()
+                        };
+                        Persona.CivilStatusHistoric = GetCivilStatusHistoric(Persona.PersonId);
                     }
                 }
               
@@ -90,22 +86,18 @@ namespace Repository.Repositorys
                 {
                     connection.Open();
 
-                    using (var command = new SqlCommand("ObtenerNombrePersonaById", connection))
+                     var command = new SqlCommand("ObtenerNombrePersonaById", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    if (reader.Read())
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
-
-                        using (var reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
 
 
-                                FullName = $"{reader["PrimerNombre"].ToString().Trim()} {reader["SegundoNombre"].ToString().Trim()} {reader["PrimerApellido"].ToString().Trim()} {(reader["SegundoApellido"].ToString().Trim() != "NO INDICA" ? reader["SegundoApellido"].ToString().Trim() : "")}";
+                        FullName = $"{reader["PrimerNombre"].ToString().Trim()} {reader["SegundoNombre"].ToString().Trim()} {reader["PrimerApellido"].ToString().Trim()} {(reader["SegundoApellido"].ToString().Trim() != "NO INDICA" ? reader["SegundoApellido"].ToString().Trim() : "")}";
 
 
-                            }
-                        }
                     }
                 }
                 
@@ -134,36 +126,32 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("sp_GetPersonaEstadoCivilHistorico", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                     var command = new SqlCommand("sp_GetPersonaEstadoCivilHistorico", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                status = new List<PersonaEstadoCivilHistorico>();
-                                while (reader.Read()) // Itera sobre los resultados del procedimiento almacenado
-                                {
-                                    // Crea una instancia de tb_Telefono para cada fila y asigna los valores correspondientes
-                                    var statu = new PersonaEstadoCivilHistorico()
-                                    {
-                                        IdEvento = Convert.ToInt32(reader["IdEvento"]),
-                                        IdPersonaConyuge = reader["IdPersonaConyuge"] != DBNull.Value ? Convert.ToInt32(reader["IdPersonaConyuge"]) : (int?)null,
-                                        CitaMatrimonio = reader["CitaMatrimonio"].ToString(),
-                                        TipoSuceso = reader["TipoSuceso"] != DBNull.Value ? Convert.ToInt16(reader["TipoSuceso"]) : (short?)null,
-                                        TipoMatrimonio = reader["TipoMatrimonio"] != DBNull.Value ? Convert.ToInt16(reader["TipoMatrimonio"]) : (short?)null,
-                                        FechaSuceso = reader["FechaSuceso"] != DBNull.Value ? Convert.ToDateTime(reader["FechaSuceso"]) : (DateTime?)null,
-                                        ProvinciaSuceso = reader["ProvinciaSuceso"] != DBNull.Value ? Convert.ToInt16(reader["ProvinciaSuceso"]) : (short?)null,
-                                        CantonSuceso = reader["CantonSuceso"] != DBNull.Value ? Convert.ToInt16(reader["CantonSuceso"]) : (short?)null,
-                                        DistritoSuceso = reader["DistritoSuceso"] != DBNull.Value ? Convert.ToInt16(reader["DistritoSuceso"]) : (short?)null,
-                                        LugarSuceso= reader["LugarSuceso"] != DBNull.Value ? reader["LugarSuceso"].ToString():""
-                                    };
-                                    statu.NombreCoyugue = GetPersonName((int)statu.IdPersonaConyuge);
-                                    status.Add(statu); // Agrega el teléfono a la lista
-                                }
-                            }
-                        }
+                     var reader = command.ExecuteReader();
+                    status = new List<PersonaEstadoCivilHistorico>();
+                    while (reader.Read()) // Itera sobre los resultados del procedimiento almacenado
+                    {
+                        // Crea una instancia de tb_Telefono para cada fila y asigna los valores correspondientes
+                        var statu = new PersonaEstadoCivilHistorico()
+                        {
+                            IdEvento = Convert.ToInt32(reader["IdEvento"]),
+                            IdPersonaConyuge = reader["IdPersonaConyuge"] != DBNull.Value ? Convert.ToInt32(reader["IdPersonaConyuge"]) : (int?)null,
+                            CitaMatrimonio = reader["CitaMatrimonio"].ToString(),
+                            TipoSuceso = reader["TipoSuceso"] != DBNull.Value ? Convert.ToInt16(reader["TipoSuceso"]) : (short?)null,
+                            TipoMatrimonio = reader["TipoMatrimonio"] != DBNull.Value ? Convert.ToInt16(reader["TipoMatrimonio"]) : (short?)null,
+                            FechaSuceso = reader["FechaSuceso"] != DBNull.Value ? Convert.ToDateTime(reader["FechaSuceso"]) : (DateTime?)null,
+                            ProvinciaSuceso = reader["ProvinciaSuceso"] != DBNull.Value ? Convert.ToInt16(reader["ProvinciaSuceso"]) : (short?)null,
+                            CantonSuceso = reader["CantonSuceso"] != DBNull.Value ? Convert.ToInt16(reader["CantonSuceso"]) : (short?)null,
+                            DistritoSuceso = reader["DistritoSuceso"] != DBNull.Value ? Convert.ToInt16(reader["DistritoSuceso"]) : (short?)null,
+                            LugarSuceso = reader["LugarSuceso"] != DBNull.Value ? reader["LugarSuceso"].ToString() : ""
+                        };
+                        statu.NombreCoyugue = GetPersonName((int)statu.IdPersonaConyuge);
+                        status.Add(statu); // Agrega el teléfono a la lista
                     }
+                }
                 
 
                 return status;
@@ -189,28 +177,24 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerTelefonosPorPersona", connection))
+                     var command = new SqlCommand("ObtenerTelefonosPorPersona", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    phones = new List<Telefonos>();
+                    while (reader.Read()) // Itera sobre los resultados del procedimiento almacenado
+                    {
+                        // Crea una instancia de tb_Telefono para cada fila y asigna los valores correspondientes
+                        var telefono = new Telefonos()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                            Telefono = reader["Telefono"].ToString(),
+                            Tipo = reader["TipoTelefono"].ToString().Trim()
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                phones = new List<Telefonos>();
-                                while (reader.Read()) // Itera sobre los resultados del procedimiento almacenado
-                                {
-                                    // Crea una instancia de tb_Telefono para cada fila y asigna los valores correspondientes
-                                    var telefono = new Telefonos()
-                                    {
-                                        Telefono = reader["Telefono"].ToString(),
-                                        Tipo = reader["TipoTelefono"].ToString().Trim()
-                                    };
-
-                                    phones.Add(telefono); // Agrega el teléfono a la lista
-                                }
-                            }
-                        }
+                        phones.Add(telefono); // Agrega el teléfono a la lista
                     }
+                }
                 
 
                 return phones;
@@ -237,28 +221,24 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerDireccionesPorIdPersona", connection))
+                     var command = new SqlCommand("ObtenerDireccionesPorIdPersona", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    adress = new List<Direcciones>();
+                    while (reader.Read())
+                    {
+
+                        var adres = new Direcciones()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                            Direccion = reader["Direccion"].ToString(),
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                adress = new List<Direcciones>();
-                                while (reader.Read()) 
-                                {
-                                   
-                                    var adres = new Direcciones()
-                                    {
-                                        Direccion = reader["Direccion"].ToString(),
-                                       
-                                    };
+                        };
 
-                                    adress.Add(adres);
-                                }
-                            }
-                        }
+                        adress.Add(adres);
                     }
+                }
                 
 
                 return adress;
@@ -284,36 +264,32 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerTop10EmpresasPorPersona", connection))
+                     var command = new SqlCommand("ObtenerTop10EmpresasPorPersona", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+
+                     var reader = command.ExecuteReader();
+                    // adress = new List<tb_Direccion>();
+                    while (reader.Read())
+                    {
+
+                        var company = new Company()
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                            Cargo = reader["Cargo"] != DBNull.Value ? reader["Cargo"].ToString() : "",
+                            NombreComercial = reader["NombreComercial"] != DBNull.Value ? reader["NombreComercial"].ToString() : "",
+                            FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : DateTime.MinValue,
+                            FechaInicio = reader["FechaInicio"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInicio"]) : DateTime.MinValue,
+                            FechaVencimiento = reader["FechaVencimiento"] != DBNull.Value ? Convert.ToDateTime(reader["FechaVencimiento"]) : DateTime.MinValue,
+                            FinesEmpresa = reader["FinesEmpresa"] != DBNull.Value ? reader["FinesEmpresa"].ToString() : "",
+                            DescProrrogas = reader["DescProrrogas"] != DBNull.Value ? reader["DescProrrogas"].ToString() : "",
+                            Representacion = reader["Representacion"] != DBNull.Value ? reader["Representacion"].ToString() : "",
+                            MontoCapital = reader["MontoCapital"] != DBNull.Value ? Convert.ToDecimal(reader["MontoCapital"]) : 0,
+                            CantidadAcciones = reader["CantidadAcciones"] != DBNull.Value ? Convert.ToInt32(reader["CantidadAcciones"]) : 0
+                        };
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                               // adress = new List<tb_Direccion>();
-                                while (reader.Read())
-                                {
-
-                                    var company = new Company()
-                                    {
-                                        Cargo = reader["Cargo"] != DBNull.Value ? reader["Cargo"].ToString() : "",
-                                        NombreComercial = reader["NombreComercial"] != DBNull.Value ? reader["NombreComercial"].ToString() : "",
-                                        FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : DateTime.MinValue,
-                                        FechaInicio = reader["FechaInicio"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInicio"]) : DateTime.MinValue,
-                                        FechaVencimiento = reader["FechaVencimiento"] != DBNull.Value ? Convert.ToDateTime(reader["FechaVencimiento"]) : DateTime.MinValue,
-                                        FinesEmpresa = reader["FinesEmpresa"] != DBNull.Value ? reader["FinesEmpresa"].ToString() : "",
-                                        DescProrrogas = reader["DescProrrogas"] != DBNull.Value ? reader["DescProrrogas"].ToString() : "",
-                                        Representacion = reader["Representacion"] != DBNull.Value ? reader["Representacion"].ToString() : "",
-                                        MontoCapital = reader["MontoCapital"] != DBNull.Value ? Convert.ToDecimal(reader["MontoCapital"]) : 0,
-                                        CantidadAcciones = reader["CantidadAcciones"] != DBNull.Value ? Convert.ToInt32(reader["CantidadAcciones"]) : 0
-                                    };
-
-                                    appointment.Nombramientos.Add(company);
-                                }
-                            }
-                        }
+                        appointment.Nombramientos.Add(company);
                     }
+                }
                 
 
                 return appointment;
@@ -339,31 +315,27 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerDatosPersonaVinculo", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                     var command = new SqlCommand("ObtenerDatosPersonaVinculo", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                relations = new List<Vinculo>();
-                                while (reader.Read()) 
-                                {
+                     var reader = command.ExecuteReader();
+                    relations = new List<Vinculo>();
+                    while (reader.Read())
+                    {
 
-                                    var relation = new Vinculo();
+                        var relation = new Vinculo();
 
-                                    
-                                    relation.NombrePersona = reader["NombrePersona"] != DBNull.Value ? reader["NombrePersona"].ToString().Trim() : string.Empty;
 
-                                    relation.Tipo = reader["Tipo"] != DBNull.Value ? Convert.ToInt32(reader["Tipo"]) : 0;
-                                    relation.FechaVinculo = (DateTime)(reader["FechaVinculo"] != DBNull.Value ? Convert.ToDateTime(reader["FechaVinculo"]) : (DateTime?)null);
-                                    
+                        relation.NombrePersona = reader["NombrePersona"] != DBNull.Value ? reader["NombrePersona"].ToString().Trim() : string.Empty;
 
-                                    relations.Add(relation); 
-                                }
-                            }
-                        }
+                        relation.Tipo = reader["Tipo"] != DBNull.Value ? Convert.ToInt32(reader["Tipo"]) : 0;
+                        relation.FechaVinculo = (DateTime)(reader["FechaVinculo"] != DBNull.Value ? Convert.ToDateTime(reader["FechaVinculo"]) : (DateTime?)null);
+
+
+                        relations.Add(relation);
                     }
+                }
                 
 
                 return relations;

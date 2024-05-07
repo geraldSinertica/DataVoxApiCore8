@@ -34,28 +34,24 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                        using (var command = new SqlCommand("ObtenerDatosSalario", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
+                     var command = new SqlCommand("ObtenerDatosSalario", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
 
-                            using (var reader = command.ExecuteReader())
-                            {
-                                if (reader.Read())
-                                {
-                                    income = new Incomes
-                                    {
-                                        LastSalary = Convert.ToDecimal(reader["UltimoSalario"]),
-                                        Avg2Months = reader["SalarioPromedio2meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio2meses"]) : 0m,
-                                        Avg3Months = reader["SalarioPromedio3meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio3meses"]) : 0m,
-                                        Avg6Months = reader["SalarioPromedio6meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio6meses"]) : 0m,
-                                        AvgYear = reader["SalarioPromedio12meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio12meses"]) : 0m,
-                                        LastUpdate = Convert.ToDateTime(reader["FechaActualizacion"])
-                                    };
-                                }
-                            }
-                        }
+                     var reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        income = new Incomes
+                        {
+                            LastSalary = Convert.ToDecimal(reader["UltimoSalario"]),
+                            Avg2Months = reader["SalarioPromedio2meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio2meses"]) : 0m,
+                            Avg3Months = reader["SalarioPromedio3meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio3meses"]) : 0m,
+                            Avg6Months = reader["SalarioPromedio6meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio6meses"]) : 0m,
+                            AvgYear = reader["SalarioPromedio12meses"] != DBNull.Value ? Convert.ToDecimal(reader["SalarioPromedio12meses"]) : 0m,
+                            LastUpdate = Convert.ToDateTime(reader["FechaActualizacion"])
+                        };
                     }
+                }
                 
                 return income;
             }

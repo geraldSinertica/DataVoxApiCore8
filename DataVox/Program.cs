@@ -40,6 +40,16 @@ builder.Services.AddAuthentication(config =>
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Policy", app =>
+    {
+        app.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -50,6 +60,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
+app.UseCors("Policy");
 
 app.UseAuthentication();
 

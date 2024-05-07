@@ -50,7 +50,7 @@ namespace AplicationCore.Services.Auth
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = claims,
-                Expires = DateTime.UtcNow.AddMinutes(10),
+                Expires = DateTime.UtcNow.AddMinutes(80),
                 SigningCredentials = credencialesToken
             };
 

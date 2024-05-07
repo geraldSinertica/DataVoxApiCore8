@@ -33,11 +33,11 @@ namespace Infraestructure.Repositorys
                 {
                     connection.Open();
 
-                    using var command = new SqlCommand("[dbo].[dbo.PreCalificado-MExpress]", connection);
+                     var command = new SqlCommand("[dbo].[dbo.PreCalificado-MExpress]", connection);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@Identificacion", identification));
 
-                    using var reader = command.ExecuteReader();
+                     var reader = command.ExecuteReader();
                     rules = new List<Reglas>();
                     while (reader.Read()) 
                     {
