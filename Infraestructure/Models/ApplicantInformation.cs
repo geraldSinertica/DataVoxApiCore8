@@ -13,7 +13,7 @@ namespace Repository.Models
 
         public ContactData TelefonosYDirecciones { get; set; }
 
-        public Filiacion Filiaciones  { get; set; }
+        public List<Filiacion> Filiaciones  { get; set; }
 
         public Appointment Nombramientos { get; set; }
     }

@@ -16,14 +16,13 @@ namespace Repository.Models
         public int TipoIdentificacion { get; set; }
         public string NombreCompleto { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public int Edad { get; set; }
         public char Genero { get; set; }
         public string EstadoDeVida { get; set; }
         public string LugarNacimiento { get; set; }
-        public int EstadoCivil { get; set; }
+        public string EstadoCivil { get; set; }
         public int Nacionalidad { get; set; }
-        public string NombrePadre { get; set; }
-        public string NombreMadre { get; set; }
-        public string IdentificationIssue { get; set; }
+      
         public string IdentificacionVencimiento { get; set; }
 
         public  List<PersonaEstadoCivilHistorico> CivilStatusHistoric { get; set; }

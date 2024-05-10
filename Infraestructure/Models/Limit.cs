@@ -8,7 +8,7 @@ namespace Repository.Models
 {
     public class Limit
     {
-        public char PuntoCardinal { get; set; }
+        public string PuntoCardinal { get; set; }
         public string Lindero { get; set; }
     }
 }

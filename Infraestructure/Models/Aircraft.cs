@@ -8,7 +8,7 @@ namespace Repository.Models
 {
     public class Aircraft
     {
-        public int IdMueble { get; set; }
+        public long IdMueble { get; set; }
         public string Placa { get; set; }
         public string TipoBien { get; set; }
         public string NumeroSerie { get; set; }
@@ -19,9 +19,7 @@ namespace Repository.Models
         public string Fabricante { get; set; }
         public decimal? PesoMaximo { get; set; }
         public decimal? PesoVacio { get; set; }
-        public string NumeroMotor { get; set; }
-        public string NumeroSerieMotor { get; set; }
-        public string FabricanteMotor { get; set; }
+   
         public string ClaseBien { get; set; }
         public string CodigoBien { get; set; }
         public decimal? NumeroRegistral { get; set; }

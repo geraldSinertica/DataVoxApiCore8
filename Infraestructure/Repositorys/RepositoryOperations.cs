@@ -82,21 +82,16 @@ namespace Repository.Repositorys
                             FechaOtorgamiento = Convert.ToDateTime(reader["FechaOtorgamiento"]),
                             FechaVencimiento = Convert.ToDateTime(reader["FechaVencimiento"]),
                             FechaActualizacion = Convert.ToDateTime(reader["FechaActualizacion"]),
-                            IdTipoOperacion = reader["IdTipoOperacion"] == DBNull.Value ? 0 : Convert.ToInt32(reader["IdTipoOperacion"]),
-                            TipoCredito = reader["TipoCredito"].ToString(),
-                            PeriodoPago = reader["PeriodoPago"].ToString(),
-                            TipoGarantia = reader["TipoGarantia"].ToString(),
+                           
                             MontoOtorgado = Convert.ToDecimal(reader["MontoOtorgado"] == DBNull.Value ? 0 : reader["MontoOtorgado"]),
                             SaldoActual = reader["SaldoActual"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["SaldoActual"]),
                             SaldoMora = reader["SaldoMora"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["SaldoMora"]),
                             IndiceMora = reader["IndiceMora"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["IndiceMora"]),
                             ValorCuota = reader["ValorCuota"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["ValorCuota"]),
-                            CantidadCuotasVencidas = reader["CantidadCuotasVencidas"] == DBNull.Value ? 0 : Convert.ToInt32(reader["CantidadCuotasVencidas"]),
                             DiasMora = reader["DiasMora"] == DBNull.Value ? 0 : Convert.ToInt32(reader["DiasMora"]),
                             Moneda = reader["Moneda"].ToString(),
-                            Calificacion = reader["Calificacion"].ToString(),
+                         
                             Estado = reader["Estado"].ToString(),
-                            FechaActualizacionSaldo = Convert.ToDateTime(reader["FechaActualizacionSaldo"])
                         };
 
                         credits.Add(credit); // Agrega el teléfono a la lista

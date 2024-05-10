@@ -8,7 +8,7 @@ namespace Repository.Models
 {
   public  class Annotation
     {
-        public int IdAnotacion { get; set; }
+        public long IdAnotacion { get; set; }
         public string CitaAnotacion { get; set; }
         public string TipoOperacion { get; set; }
         public DateTime? FechaAnotacion { get; set; }

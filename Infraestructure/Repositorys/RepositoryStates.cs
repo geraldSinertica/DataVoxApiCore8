@@ -44,7 +44,7 @@ namespace Repository.Repositorys
                     {
                         var limit = new Limit()
                         {
-                            PuntoCardinal = reader["PuntoCardinal"] != DBNull.Value ? Convert.ToChar(reader["PuntoCardinal"]) : 'A',
+                            PuntoCardinal = reader["PuntoCardinal"] != DBNull.Value ? reader["PuntoCardinal"].ToString() :"",
                             Lindero = reader["Lindero"] != DBNull.Value ? reader["Lindero"].ToString() : ""
                         };
 
@@ -66,7 +66,7 @@ namespace Repository.Repositorys
         }
 
 
-        private List<Assessment> GetAssessmentByState(int idState)
+        private List<Assessment> GetAssessmentByState(long idState)
         {
             try
             {
@@ -90,14 +90,14 @@ namespace Repository.Repositorys
                         var assessment = new Assessment()
                         {
                             CitaGravamen = reader["idGravamen"].ToString(),
-                            Moneda = reader["Moneda"].ToString(),
-                            Monto = Convert.ToDecimal(reader["Monto"]),
-                            FechaInicia = Convert.ToDateTime(reader["FechaInicia"]),
-                            FechaVence = Convert.ToDateTime(reader["FechaVence"]),
+                            Moneda = reader["Monto"] != DBNull.Value ? reader["Moneda"].ToString() :"",
+                            Monto = reader["Monto"] != DBNull.Value ? Convert.ToDecimal(reader["Monto"]):0,
+                            FechaInicia = reader["FechaVence"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInicia"]):DateTime.MinValue,
+                            FechaVence = reader["FechaVence"] != DBNull.Value ? Convert.ToDateTime(reader["FechaVence"]) : DateTime.MinValue,
                             FechaInterrupcion = reader["FechaInterrupcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInterrupcion"]) : (DateTime?)null,
-                            Interes = reader["Interes"].ToString(),
-                            FormaPago = reader["FormaPago"].ToString(),
-                            FechaUltActualizacion = reader["FechaUltActualizacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaUltActualizacion"]) : (DateTime?)null,
+                            Interes = reader["Interes"] != DBNull.Value ? reader["Interes"].ToString():"",
+                            FormaPago = reader["FormaPago"] != DBNull.Value ? reader["FormaPago"].ToString():"",
+                            FechaUltActualizacion = reader["FechaUltActualizacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaUltActualizacion"]) : DateTime.MinValue,
                             ClaseResponsabilidad = reader["ClaseResponsabilidad"] != DBNull.Value ? Convert.ToChar(reader["ClaseResponsabilidad"]) : (char?)null,
                             TomoCredito = reader["TomoCredito"] != DBNull.Value ? Convert.ToInt32(reader["TomoCredito"]) : (int?)null,
                             AsientoCredito = reader["AsientoCredito"] != DBNull.Value ? Convert.ToInt32(reader["AsientoCredito"]) : (int?)null,
@@ -127,7 +127,7 @@ namespace Repository.Repositorys
             }
         }
 
-        private List<Annotation> GetAnnotationsByState(int idState)
+        private List<Annotation> GetAnnotationsByState(long idState)
         {
             try
             {
@@ -140,7 +140,7 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                     var command = new SqlCommand("ObtenerGravamenesPorInmueble", connection);
+                     var command = new SqlCommand("ObtenerAnotacionesPorInmueble", connection);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@IdInmueble ", idState));
 
@@ -149,17 +149,18 @@ namespace Repository.Repositorys
                     while (reader.Read())
                     {
 
-                        var annotation = new Annotation()
-                        {
-                            IdAnotacion = Convert.ToInt32(reader["idAnotacion"]),
-                            CitaAnotacion = reader["CitaAnotacion"].ToString(),
-                            TipoOperacion = reader["TipoOperacion"].ToString(),
-                            FechaAnotacion = reader["FechaAnotacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaAnotacion"]) : (DateTime?)null,
-                            Derecho = reader["Derecho"] != DBNull.Value ? Convert.ToInt16(reader["Derecho"]) : (short?)null,
-                            IdGravamen = reader["IdGravamen"] != DBNull.Value ? Convert.ToInt32(reader["IdGravamen"]) : (int?)null,
-                            CreditoAsociado = reader["CreditoAsociado"].ToString(),
-                            SecuenciaAfectada = reader["SecuenciaAfectada"] != DBNull.Value ? Convert.ToInt16(reader["SecuenciaAfectada"]) : (short?)null
-                        };
+                        var annotation = new Annotation();
+
+
+                        annotation.IdAnotacion = reader["idAnotacion"] != DBNull.Value ? long.Parse(reader["idAnotacion"].ToString()) : 0;
+                        annotation.CitaAnotacion = reader["CitaAnotacion"].ToString();
+                        annotation.TipoOperacion = reader["TipoOperacion"].ToString();
+                        annotation.FechaAnotacion = reader["FechaAnotacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaAnotacion"]) : DateTime.MinValue;
+                        annotation.Derecho = reader["Derecho"] != DBNull.Value ? Convert.ToInt16(reader["Derecho"]) : (short?)null;
+                        annotation.IdGravamen = reader["IdGravamen"] != DBNull.Value ? Convert.ToInt32(reader["IdGravamen"]) : (int?)null;
+                        annotation.CreditoAsociado = reader["CreditoAsociado"].ToString();
+                         annotation.SecuenciaAfectada = reader["SecuenciaAfectada"] != DBNull.Value ? Convert.ToInt16(reader["SecuenciaAfectada"]) : (short?)null;
+                        
 
                         annotations.Add(annotation);
                     }
@@ -178,7 +179,7 @@ namespace Repository.Repositorys
             }
         }
 
-        private List<RealEstate> GetRealEstateByPerson(int PersonId)
+        private List<RealEstate> GetRealEstateByPerson(long PersonId)
         {
             try
             {
@@ -199,14 +200,30 @@ namespace Repository.Repositorys
                     while (reader.Read())
                     {
 
-                        var state = new RealEstate()
-                        {
+                        RealEstate realEstate = new RealEstate();
 
-                        };
-                        state.Limits = GetLimitByState(state.IdInmueble);
-                        state.Assessments = GetAssessmentByState(state.IdInmueble);
-                        state.Annotations = GetAnnotationsByState(state.IdInmueble);
-                        states.Add(state);
+                        realEstate.IdInmueble = Convert.ToInt32(reader["IdInmueble"].ToString());
+                        realEstate.NumeroFinca = reader["NumeroFinca"].ToString();
+                        realEstate.Canton = reader["Canton"].ToString();
+                        realEstate.Distrito = reader["Distrito"].ToString();
+                        realEstate.Medida = Convert.ToDecimal(reader["Medida"].ToString());
+                        realEstate.IdOperacion = reader["IdOperacion"].ToString();
+                        realEstate.Presentacion = reader["Presentacion"].ToString();
+                        realEstate.FechaUltActualizacion = Convert.ToDateTime(reader["FechaUltActualizacion"].ToString());
+                        realEstate.Naturaleza = reader["Naturaleza"].ToString();
+                        realEstate.Plano = reader["Plano"].ToString();
+                        realEstate.Avaluo = Convert.ToDecimal(reader["Avaluo"].ToString());
+                        realEstate.ValorPorcentual = Convert.ToDecimal(reader["ValorPorcentual"].ToString());
+
+                        // Aquí puedes llamar a los métodos GetLimitByState, GetAssessmentByState y GetAnnotationsByState
+                        // para llenar las listas Limits, Assessments y Annotations, respectivamente.
+                        realEstate.Limits = GetLimitByState(realEstate.IdInmueble);
+                        realEstate.Assessments = GetAssessmentByState(realEstate.IdInmueble);
+                        realEstate.Annotations = GetAnnotationsByState(realEstate.IdInmueble);
+                        realEstate.Limits = GetLimitByState(realEstate.IdInmueble);
+                        realEstate.Assessments = GetAssessmentByState(realEstate.IdInmueble);
+                        realEstate.Annotations = GetAnnotationsByState(realEstate.IdInmueble);
+                        states.Add(realEstate);
                     }
                 }
                 
@@ -396,7 +413,7 @@ namespace Repository.Repositorys
                     {
                         connection.Open();
 
-                     var command = new SqlCommand("ObtenerInmueblesPorPersona", connection);
+                     var command = new SqlCommand("ObtenerAvionesPorPersona", connection);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add(new SqlParameter("@IdPersona", PersonId));
 
@@ -407,7 +424,7 @@ namespace Repository.Repositorys
 
                         var aircraft = new Aircraft()
                         {
-                            IdMueble = Convert.ToInt32(reader["IdMueble"]),
+                            IdMueble = reader["IdMueble"] != DBNull.Value ? Convert.ToInt32(reader["IdMueble"]): 0,
                             Placa = reader["Placa"].ToString(),
                             TipoBien = reader["TipoBien"].ToString(),
                             NumeroSerie = reader["NumeroSerie"].ToString(),
@@ -417,10 +434,7 @@ namespace Repository.Repositorys
                             Modelo = reader["Modelo"].ToString(),
                             Fabricante = reader["Fabricante"].ToString(),
                             PesoMaximo = reader["PesoMaximo"] != DBNull.Value ? Convert.ToDecimal(reader["PesoMaximo"]) : (decimal?)null,
-                            PesoVacio = reader["PesoVacio"] != DBNull.Value ? Convert.ToDecimal(reader["PesoVacio"]) : (decimal?)null,
-                            NumeroMotor = reader["NumeroMotor"].ToString(),
-                            NumeroSerieMotor = reader["NumeroSerieMotor"].ToString(),
-                            FabricanteMotor = reader["FabricanteMotor"].ToString(),
+                            PesoVacio = reader["PesoVacio"] != DBNull.Value ? Convert.ToDecimal(reader["PesoVacio"]) : (decimal?)null,                         
                             ClaseBien = reader["ClaseBien"].ToString(),
                             CodigoBien = reader["CodigoBien"].ToString(),
                             NumeroRegistral = reader["NumeroRegistral"] != DBNull.Value ? Convert.ToDecimal(reader["NumeroRegistral"]) : (decimal?)null,

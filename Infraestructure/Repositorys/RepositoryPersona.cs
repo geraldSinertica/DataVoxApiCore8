@@ -51,12 +51,11 @@ namespace Repository.Repositorys
                             FechaNacimiento = Convert.ToDateTime(reader["FechaNacimiento"]),
                             Genero = reader["IdSexo"] != DBNull.Value ? Convert.ToChar(reader["IdSexo"]) : 'E',
                             EstadoDeVida = reader["EstadoVida"].ToString(),
+                            Edad = reader["Edad"] != DBNull.Value ? Convert.ToInt32(reader["Edad"]) :  0,
                             LugarNacimiento = reader["LugarNacimiento"].ToString(),
-                            EstadoCivil = Convert.ToInt32(reader["IdEstadoCivil"]),
+                            EstadoCivil = reader["EstadoCivil"].ToString(),
                             Nacionalidad = Convert.ToInt32(reader["Nacionalidad"]),
-                            NombrePadre = reader["NombrePadre"].ToString(),
-                            NombreMadre = reader["NombreMadre"].ToString(),
-                            IdentificationIssue = reader["FechaEmision"].ToString(),
+                           
                             IdentificacionVencimiento = reader["FechaVencimiento"].ToString()
                         };
                         Persona.CivilStatusHistoric = GetCivilStatusHistoric(Persona.PersonId);
@@ -350,46 +349,32 @@ namespace Repository.Repositorys
             }
         }
 
-        private Filiacion GetRelations(int PersonId)
+        private List<Filiacion> GetRelations(int PersonId)
         {
             try
             {
-                Filiacion filiation = null;
+                List<Filiacion> filiations = new List<Filiacion>();
 
-                List<Vinculo> list = GetAllRelations(PersonId);
+               List<Vinculo> list = GetAllRelations(PersonId);
 
                 if (list != null && list.Count >0)
                 {
-                    filiation = new Filiacion();
-                    foreach (var item in list)
+                    var groupedRelations = list.GroupBy(r => r.Tipo);
+
+                    foreach (var group in groupedRelations)
                     {
-                        switch ((TipoVinculo)item.Tipo)
+                        Filiacion filiation = new Filiacion
                         {
-                            case TipoVinculo.MADRE:
-                                filiation.Madre = item;
-                                break;
-                            case TipoVinculo.PADRE:
-                                filiation.Padre = item;
-                                break;
-                            case TipoVinculo.HIJO:
-                                filiation.Hijos.Add(item);
-                                break;
-                            case TipoVinculo.CONYUGE:
-                                filiation.Conyugue = item;
-                                break;
-                            case TipoVinculo.HERMANO:
-                                filiation.Hermanos.Add(item);
-                                break;
-                            case TipoVinculo.TIO:
-                                filiation.Tios.Add(item);
-                                break;
-                                
-                        }
+                            Tipo = (TipoVinculo)group.Key, 
+                            Persona = group.ToList() 
+                        };
+
+                        filiations.Add(filiation); 
                     }
                 }
               
 
-                return filiation;
+                return filiations;
             }
             catch (DbUpdateException dbEx)
             {
@@ -417,7 +402,7 @@ namespace Repository.Repositorys
                  
                 ContactData contactData = new ContactData();
                 Appointment appointment = null;
-                Filiacion filiacion = null;
+                List<Filiacion> filiacion = null;
 
                 if(PersonId > 0)
                 {
