@@ -9,10 +9,12 @@ namespace Repository.Models
     public class Credit
     {
         public string NumeroCredito { get; set; }
+        public string Entidad { get; set; }
         public DateTime FechaOtorgamiento { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public DateTime FechaActualizacion { get; set; }
         public string Estado { get; set; }
+        public string SiglaEstado { get; set; }
         public string Moneda { get; set; }
         public decimal MontoOtorgado { get; set; }
         public decimal SaldoActual { get; set; }

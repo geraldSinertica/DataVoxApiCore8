@@ -251,11 +251,12 @@ namespace Repository.Repositorys
                 throw new Exception(ex.Message);
             }
         }
+
         private Appointment GetAppointments(int PersonId)
         {
             try
             {
-                Appointment appointment = null;
+                Appointment appointment = new Appointment();
 
                 string cadena = Configuration.GetConnectionString("DataVoxConnection");
 
@@ -274,16 +275,15 @@ namespace Repository.Repositorys
 
                         var company = new Company()
                         {
-                            Cargo = reader["Cargo"] != DBNull.Value ? reader["Cargo"].ToString() : "",
-                            NombreComercial = reader["NombreComercial"] != DBNull.Value ? reader["NombreComercial"].ToString() : "",
+                            RazonSocial = reader["RazonSocial"] != DBNull.Value ? reader["RazonSocial"].ToString() : "",
+                            IdTipoParte = reader["IdTipoParte"] != DBNull.Value ? Convert.ToInt32(reader["IdTipoParte"]) : 0,
+                            IdTipoRepresentacion = reader["IdTipoRepresentacion"] != DBNull.Value ? Convert.ToInt32(reader["IdTipoRepresentacion"]) : 0,
                             FechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : DateTime.MinValue,
+                            IndicadorJuntaDirectiva = reader["IndicadorJuntaDirectiva"] != DBNull.Value? reader["IndicadorJuntaDirectiva"].ToString() :"",
                             FechaInicio = reader["FechaInicio"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInicio"]) : DateTime.MinValue,
                             FechaVencimiento = reader["FechaVencimiento"] != DBNull.Value ? Convert.ToDateTime(reader["FechaVencimiento"]) : DateTime.MinValue,
-                            FinesEmpresa = reader["FinesEmpresa"] != DBNull.Value ? reader["FinesEmpresa"].ToString() : "",
-                            DescProrrogas = reader["DescProrrogas"] != DBNull.Value ? reader["DescProrrogas"].ToString() : "",
-                            Representacion = reader["Representacion"] != DBNull.Value ? reader["Representacion"].ToString() : "",
-                            MontoCapital = reader["MontoCapital"] != DBNull.Value ? Convert.ToDecimal(reader["MontoCapital"]) : 0,
-                            CantidadAcciones = reader["CantidadAcciones"] != DBNull.Value ? Convert.ToInt32(reader["CantidadAcciones"]) : 0
+                            PorcentajeCuotas = reader["PorcentajeCuotas"] != DBNull.Value ? Convert.ToDecimal(reader["PorcentajeCuotas"]) : 0m,
+                            IndicadorPuestoVacante = reader["IndicadorPuestoVacante"] != DBNull.Value && Convert.ToBoolean(reader["IndicadorPuestoVacante"])
                         };
 
                         appointment.Nombramientos.Add(company);

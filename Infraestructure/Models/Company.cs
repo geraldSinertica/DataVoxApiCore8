@@ -8,15 +8,15 @@ namespace Repository.Models
 {
     public class Company
     {
-        public string Cargo { get; set; }
-        public string NombreComercial { get; set; }
+        public string RazonSocial { get; set; }
+        public int IdTipoParte { get; set; }
+        public int IdTipoRepresentacion { get; set; }
         public DateTime FechaInscripcion { get; set; }
+        public string IndicadorJuntaDirectiva { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        public string FinesEmpresa { get; set; }
-        public string DescProrrogas { get; set; }
-        public string Representacion { get; set; }
-        public decimal MontoCapital { get; set; }
-        public int CantidadAcciones { get; set; }
+        public decimal PorcentajeCuotas { get; set; }
+        public bool IndicadorPuestoVacante { get; set; }
+
     }
 }

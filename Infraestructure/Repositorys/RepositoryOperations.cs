@@ -33,7 +33,7 @@ namespace Repository.Repositorys
                     Operatios = new Operations();
                     foreach (var item in credits)
                     {
-                        if(item.SaldoActual > 0)
+                        if(item.SiglaEstado == "VIG")
                         {
                             Operatios.OpenOperations.Add(item);
                         }
@@ -79,10 +79,11 @@ namespace Repository.Repositorys
                         var credit = new Credit()
                         {
                             NumeroCredito = reader["NumeroCredito"].ToString(),
+                            Entidad = reader["Entidad"].ToString(),
                             FechaOtorgamiento = Convert.ToDateTime(reader["FechaOtorgamiento"]),
                             FechaVencimiento = Convert.ToDateTime(reader["FechaVencimiento"]),
                             FechaActualizacion = Convert.ToDateTime(reader["FechaActualizacion"]),
-                           
+                            SiglaEstado= reader["SiglaEstado"] != DBNull.Value ? reader["SiglaEstado"].ToString(): "",
                             MontoOtorgado = Convert.ToDecimal(reader["MontoOtorgado"] == DBNull.Value ? 0 : reader["MontoOtorgado"]),
                             SaldoActual = reader["SaldoActual"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["SaldoActual"]),
                             SaldoMora = reader["SaldoMora"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["SaldoMora"]),
